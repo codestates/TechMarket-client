@@ -8,12 +8,18 @@ const Nav = () => {
   const [clickSignup, setClickSignup] = useState(false);
 
   const onClickLogin = () => {
-    setClickSignup(false);
-    setClickLogin(true);
+    if(clickLogin) {
+      setClickLogin(false);
+    } else {
+      setClickLogin(true);
+    }
   }
   const onClickSignup = () => {
-    setClickSignup(true);
-    setClickLogin(false);
+    if(clickSignup) {
+      setClickSignup(false);
+    } else {
+      setClickSignup(true);
+    }
   }
   return (
     <>
@@ -29,8 +35,8 @@ const Nav = () => {
         <span>
           <button className="btn-nav" onClick={onClickLogin}>로그인</button>
           <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
-          {clickLogin ? <Login/> : <></>}
-          {clickSignup ? <Signup/> : <></>}
+          {clickLogin ? <Login onClickLogin={onClickLogin} /> : <></>}
+          {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
         </span>
         
       </div>

@@ -1,31 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
-import '../SignupModal.css'
+import '../styles/SignupModal.css'
 
 
 axios.defaults.withCredentials = true;
-class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      username: "",
-      errorMessage: ""
-    };
-    this.handleInputValue = this.handleInputValue.bind(this);
-  }
 
-  handleInputValue = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+const Signup = (props) =>{
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleInputValue = (key) => (e) => {
+    setEmail({ [key]: e.target.value });
+    setPassword({ [key]: e.target.value });
+    setUsername({ [key]: e.target.value });
+
+
   };
 
-  handleSignup = () => {
-    const {email, password, username, mobile} = this.state;
-
+  const handleSignup = async () => {
     if(email.length !== 0 && password.length !== 0 && username.length !== 0) {
-      axios.post("https://localhost:8080/user/signup",
+      console.log("a");
+      await axios.post("https://localhost:8080/user/signup",
       {
         email: email,
         password: password,
@@ -35,42 +34,44 @@ class Signup extends React.Component {
         headers: { "Content-Type": "application/json" }
       })
       .then(res => {
-        if(res.status === 200) {
+        if(res.status === 201) {
           console.log("성공")
         }
       });
     } else {
-      this.setState({ errorMessage: '모든 항목은 필수입니다' });
+      setErrorMessage("모든 항목은 필수입니다.");
     }
   }
 
-  render() {
+  const handleClickClose = () => {
+    props.onClickSignup(false);
+  }
     return (
       <>
         <center>
           <form onSubmit={(e) => e.preventDefault()}>
-            <div id="modal-container">
-              <div id="moal-header">
-                <span>TechMarket</span>
-                <button className="modal-btn">{/* X 버튼 이미지 */}</button>
-              </div>
-              <div id="modal-section">
-                <div id="modal-title">
-                  <div>회원가입</div>
-                  <div className="modal-group">
-                    <span>이메일</span>
-                    <input type='email' onChange={this.handleInputValue("email")}></input>
+            <div id="modal-background">
+              <div id="modal-container">
+                <div id="moal-header">
+                  <span>TechMarket</span>
+                  <button className="modal-btn" onClick={() => handleClickClose()}>X</button>
+                </div>
+                <div id="modal-section">
+                  <div id="modal-title">
+                    <div>회원가입</div>
+                    <div className="modal-group">
+                      <input type='text' onChange={handleInputValue("username")} placeholder="아이디"></input>
+                    </div>
+                    <div className="modal-group">
+                      <input type='email' onChange={handleInputValue("email")} placeholder="이메일"></input>
+                    </div>
+                    <div className="modal-group">
+                      <input type='password' onChange={handleInputValue("password")} placeholder="비밀번호"></input>
+                    </div>
+                    
+                    <button className='btn-signup' type="submit" onClick={handleSignup}>회원가입</button>
+                    {errorMessage ? <div className="alert-box">{errorMessage}</div> : null}
                   </div>
-                  <div className="modal-group">
-                    <span>비밀번호</span>
-                    <input type='password' onChange={this.handleInputValue("password")}></input>
-                  </div>
-                  <div className="modal-group">
-                    <span>이름</span>
-                    <input type='text' onChange={this.handleInputValue("username")}></input>
-                  </div>
-                  <button className='btn-signup' type="submit" onClick={this.handleSignup}>회원가입</button>
-                  {this.state.errorMessage ? <div className="alert-box">{this.state.errorMessage}</div> : null}
                 </div>
               </div>
             </div>
@@ -78,7 +79,6 @@ class Signup extends React.Component {
         </center>
       </>
     );
-  }
 }
 
 export default Signup;
