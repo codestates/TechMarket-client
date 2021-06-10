@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios"
 import '../styles/LoginModal.css'
+require('dotenv').config({path: __dirname + '/.env'})
+//var environment = process.env.NODE_ENV || 'development';
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -15,9 +17,9 @@ const Login = (props) => {
 
   const handleLogin = async () => {
     if (email !== "" && password !== "") {
-      console.log("a");
+      console.log(process.env.REACT_APP_API_URL);
       await axios.post(
-        "http://localhost:8080/user/login",
+        `${process.env.REACT_APP_API_URL}/user/login`,
         {
           email: email,
           password: password,
@@ -27,7 +29,7 @@ const Login = (props) => {
         }
       )
       .then(res => {
-        if(res.status === 201) {
+        if(res.status === 200) {
           console.log("성공")
         }
       });

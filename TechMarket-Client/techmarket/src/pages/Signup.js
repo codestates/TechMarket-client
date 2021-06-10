@@ -17,14 +17,13 @@ const Signup = (props) =>{
     setEmail({ [key]: e.target.value });
     setPassword({ [key]: e.target.value });
     setUsername({ [key]: e.target.value });
-
-
   };
 
   const handleSignup = async () => {
     if(email.length !== 0 && password.length !== 0 && username.length !== 0) {
       console.log("a");
-      await axios.post("https://localhost:8080/user/signup",
+
+      await axios.post(`${process.env.REACT_APP_API_URL}/user/signup`,
       {
         email: email,
         password: password,
@@ -34,7 +33,7 @@ const Signup = (props) =>{
         headers: { "Content-Type": "application/json" }
       })
       .then(res => {
-        if(res.status === 201) {
+        if(res.status === 200) {
           console.log("성공")
         }
       });
