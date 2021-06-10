@@ -36,7 +36,7 @@ const Signup = (props) =>{
       })
       .then(res => {
         if(res.status === 201) {
-          console.log("성공");
+          console.log("성공입니다");
         }
       })
       .catch(err => {
