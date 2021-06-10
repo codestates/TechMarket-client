@@ -13,30 +13,35 @@ const Signup = (props) =>{
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleInputValue = (key) => (e) => {
-    setEmail({ [key]: e.target.value });
-    setPassword({ [key]: e.target.value });
+  const handleIdInputValue = (key) => (e) => {
     setUsername({ [key]: e.target.value });
+  };
+  const handleEmailInputValue = (key) => (e) => {
+    setEmail({ [key]: e.target.value });
+  };
+  const handlePasswordInputValue = (key) => (e) => {
+    setPassword({ [key]: e.target.value });
   };
 
   const handleSignup = async () => {
     if(email.length !== 0 && password.length !== 0 && username.length !== 0) {
-      console.log("a");
-
       await axios.post(`${process.env.REACT_APP_API_URL}/user/signup`,
       {
-        email: email,
-        password: password,
-        username: username,
+        email: email.email,
+        password: password.password,
+        username: username.username,
       },
       {
         headers: { "Content-Type": "application/json" }
       })
       .then(res => {
-        if(res.status === 200) {
-          console.log("성공")
+        if(res.status === 201) {
+          console.log("성공");
         }
-      });
+      })
+      .catch(err => {
+        throw err;
+      })
     } else {
       setErrorMessage("모든 항목은 필수입니다.");
     }
@@ -59,13 +64,13 @@ const Signup = (props) =>{
                   <div id="modal-title">
                     <div>회원가입</div>
                     <div className="modal-group">
-                      <input type='text' onChange={handleInputValue("username")} placeholder="아이디"></input>
+                      <input type='text' onChange={handleIdInputValue("username")} placeholder="아이디"></input>
                     </div>
                     <div className="modal-group">
-                      <input type='email' onChange={handleInputValue("email")} placeholder="이메일"></input>
+                      <input type='email' onChange={handleEmailInputValue("email")} placeholder="이메일"></input>
                     </div>
                     <div className="modal-group">
-                      <input type='password' onChange={handleInputValue("password")} placeholder="비밀번호"></input>
+                      <input type='password' onChange={handlePasswordInputValue("password")} placeholder="비밀번호"></input>
                     </div>
                     
                     <button className='btn-signup' type="submit" onClick={handleSignup}>회원가입</button>
