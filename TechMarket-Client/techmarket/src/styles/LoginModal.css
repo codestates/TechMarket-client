@@ -26,7 +26,6 @@ html {
     z-index: 10000;
     background-color: #fff;
     text-align: center;
-
 }
 
 .modal-group {
@@ -34,7 +33,7 @@ html {
 }
 
 .modal-group > input {
-    font-size: 10px;
+    font-size: 10px
 }
 
 .modal-btn {
@@ -57,7 +56,7 @@ html {
     display: block;
 }
 
-div.modal-group>span {
+div.modal-group > span {
     position: absolute;
     font-size: 5%;
 }

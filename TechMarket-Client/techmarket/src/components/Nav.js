@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
+import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 const Nav = () => {
   const [clickLogin, setClickLogin] = useState(false);
@@ -21,6 +23,7 @@ const Nav = () => {
       setClickSignup(true);
     }
   }
+
   return (
     <>
       <div id="nav">
@@ -38,7 +41,6 @@ const Nav = () => {
           {clickLogin ? <Login onClickLogin={onClickLogin} /> : <></>}
           {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
         </span>
-        
       </div>
     </>
   );
