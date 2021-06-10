@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import MainPage from './pages/MainPage'
 
-function App() {
-    return (
-        <MainPage/>
-    );
+import React, { Component } from "react";
+
+import MainPage from "./pages/MainPage";
+
+class App extends Component {
+  render() {
+    return <MainPage />;
+  }
 }
 
 export default App;
