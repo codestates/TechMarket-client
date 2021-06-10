@@ -1,40 +1,33 @@
 import React from "react";
-import Nav from "./components/Nav";
+
+import Nav from "../components/Nav";
+import "../styles/MainPage.css";
 
 const MainPage = () => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav></Nav>
-        <div className="section1">
+        <Nav />
+        <div id="section1">
           <div className="container1">
-            <span className="company-title"></span>
-            <span className="company-intro"></span>
-            <a href="/*youtube링크*/"></a>
+            <span className="company-title">전자기기 중고 거래 TechMarket</span>
+            <span className="company-intro">TechMarket 소개 영상</span>
           </div>
-          <div className="container2">
-            <img src="./images/computer-2563737_1920.jpg"></img>
-          </div>
+          <div className="container2"></div>
         </div>
-        <div className="section2">
-          <Nav></Nav>
-          <div className="container1">
-            <img src="/* 애플 사진 */"></img>
-          </div>
+        <div id="section2">
+          <div className="container1"></div>
           <div className="container2">
-            <span className="product-intro-title"></span>
+            <span className="product-intro-title">상품 소개란</span>
             <span className="product-intro-paragraph"></span>
           </div>
         </div>
-        <div className="section3">
-          <Nav></Nav>
+        <div id="section3">
           <div className="container1">
-            <span className="product-brand-title"></span>
+            <span className="product-brand-title">브랜드 소개란</span>
             <span className="product-brand-pargraph"></span>
           </div>
-          <div className="container2">
-            <img src="/* 삼성 사진 */"></img>
-          </div>
+          <div className="container2"></div>
         </div>
         <div id="footer">
           <div className="company-title">
