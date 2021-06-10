@@ -1,5 +1,7 @@
 import React from "react";
-
+import SigninModal from '../components/SigninModal'
+import Login from "./Login"
+import Signup from "./Signup"
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
 
@@ -29,18 +31,22 @@ const MainPage = () => {
           </div>
           <div className="container2"></div>
         </div>
-        <div id="footer">
-          <div className="company-title">
-            <span className="logo"></span>
-            <span className="content"></span>
-          </div>
-          <div className="crews">
-            <span>유지원</span>
-            <span>안아림</span>
-            <span>임현택</span>
-            <span>이승현</span>
-          </div>
+        <div className="container2">
+          <img src="/* 삼성 사진 */"></img>
         </div>
+      </div>
+      <div id="footer">
+        <div className="company-title">
+          <span className="logo"></span>
+          <span className="content"></span>
+        </div>
+        <div className="crews">
+          <span>유지원</span>
+          <span>안아림</span>
+          <span>임현택</span>
+          <span>이승현</span>
+        </div>
+      </div>
       </div>
     </>
   );

@@ -1,0 +1,50 @@
+html {
+    background-color: rgb(165, 165, 218);
+}
+    
+#modal-container {
+    padding-top: 30px;  
+    font-size: 10px;
+    border-radius: 5px;
+    width:200px;
+    height:200px;
+    position: absolute;
+    z-index: 10000;
+    background-color: #fff;
+    text-align: center;
+
+}
+
+.modal-group {
+    padding: 10px;
+}
+
+.modal-btn {
+    position: absolute;
+    top: 10px;
+    left: 170px;
+}
+
+.btn-login {
+    font-size: 10px;
+    width: 80%;
+    border: 0px;
+    border-radius: 2px;
+    padding: 5px;
+    color: white;
+    background: rgb(129, 163, 207);
+}
+    
+#modal-section {
+    display: block;
+}
+
+div.modal-group>span {
+    position: absolute;
+    font-size: 5%;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid blue;
+}
