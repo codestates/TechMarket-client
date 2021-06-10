@@ -13,3 +13,19 @@ body {
     align-items: center;
     float: left;
 }
+
+#profile-aside-myprofile {
+    margin: 0;
+    width: 160px;
+    height: 3rem;
+    margin-top: 50px;
+    font-size: 15px;
+    border-radius: 0;
+    background: #ece9ff;
+    color: #725fd8;
+    transition: .2s;
+}
+
+#profile-aside-myprofile:hover {
+    background:rgb(209, 198, 231)
+}

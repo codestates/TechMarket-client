@@ -4,11 +4,15 @@ import Nav from "../components/Nav"
 import '../styles/MyPage.css'
 
 const MyPage = () => {
+    const handleClickButton = () => {
+        console.log("click")
+    }
     return (
         <>
             <Nav/>
             <aside class ="profile-aside">
-                <div></div>
+                <button id="profile-aside-myprofile" onClick={handleClickButton}>내 프로필</button>
+                <button id="profile-aside-myprofile" onClick={handleClickButton}>내 정보 수정</button>
             </aside>
         </>
     )
