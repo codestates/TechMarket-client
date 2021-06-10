@@ -47,7 +47,6 @@ const MainPage = () => {
           <span>이승현</span>
         </div>
       </div>
-      </div>
     </>
   );
 };
