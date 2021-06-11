@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios"
 import '../styles/LoginModal.css'
 
-const Login = (props) => {
+const Login = ({ issueAccessToken, onClickLogin}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
     
@@ -26,24 +26,23 @@ const Login = (props) => {
           },
           {
             withCredentials: true,
-          }
-        )
-        .then(res => {
-          if(res.status === 200) {
-            alert("로그인에 성공했습니다.!");
-            handleClickClose(); // 모달창 끄고
-            props.handleLoginSuccess();
-          }
-        })
-      } else {
-        alert("모든 항목은 필수입니다.");
+          })
+          .then(res => {
+            if(res.status === 200) {
+              alert("로그인에 성공했습니다.");
+              handleClickClose();
+              issueAccessToken(res); // 나중에는 토큰만 보내기
+            }
+          })
+        } else {
+          alert("모든 항목은 필수입니다.");
+        }
+      } catch {
+        alert("이메일 또는 비밀번호를 잘못 입력하셨습니다.\n 다시 시도해주세요");
       }
-    } catch {
-      alert("이메일 또는 비밀번호를 잘못 입력하셨습니다.\n 다시 시도해주세요");
-    }
   };
   const handleClickClose = () => {
-    props.onClickLogin(false);
+    onClickLogin(false);
   }
   return (
     <>

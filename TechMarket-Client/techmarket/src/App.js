@@ -1,24 +1,39 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 class App extends Component {
-  state = {
-    isLogin: false,
+  constructor(props){
+    super(props);
+    this.state = {
+    accessToken: "", // 로그인 완료하면 accessToken을 state에 저장한다.
+  };
+  this.issueAccessToken = this.issueAccessToken.bind(this);
+  this.onClickLogout = this.onClickLogout.bind(this);
+}
+
+  issueAccessToken = (token) => {
+    this.setState({
+      accessToken: token
+    })
+    console.log(token);
   }
 
-  handleLoginSuccess = () => {
+  onClickLogout = () => {
+    alert("로그아웃 하시겠습니까?");
     this.setState({
-      isLogin: true,
+      accessToken: "",
     })
+    window.location = "/";
   }
+
   render() {
     return (
       <Router>
         <div>
-          <Route exact path="/" render={()=> <MainPage isLogin={this.state.isLogin} handleLoginSuccess={this.handleLoginSuccess}/>} />
+          <Route exact path="/" render={()=> <MainPage accessToken={this.state.accessToken} issueAccessToken={this.issueAccessToken}/>} />
           <Switch>
-            <Route path="/mypage" render={() => <MyPage isLogin={this.state.isLogin}/>}></Route>
+            <Route path="/mypage" render={() => <MyPage accessToken={this.state.accessToken}  onClickLogout={this.onClickLogout}/>}/>
           </Switch>
         </div>
       </Router>
@@ -26,4 +41,5 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
+//export default App;

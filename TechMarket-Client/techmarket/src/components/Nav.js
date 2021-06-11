@@ -5,7 +5,7 @@ import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
 import { Link, BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-const Nav = ({ isLogin, handleLoginSuccess}) => {
+const Nav = ({ accessToken, issueAccessToken}) => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
 
@@ -28,7 +28,7 @@ const Nav = ({ isLogin, handleLoginSuccess}) => {
   return (
     <>
       <div id="nav">
-        <span className="title">TechMarket</span>
+        <Link to ="/" className="title-link"> <span className="title">TechMarket</span> </Link>
         <div className="search">
           <input
             className="product-search"
@@ -38,18 +38,18 @@ const Nav = ({ isLogin, handleLoginSuccess}) => {
         </div>
         <span>
           {
-            isLogin ?
+            accessToken ? // accessToken을 발급받았으면 ( 로그인을 했으면)
             <>
-              <button className="btn-nav"> <Link to="/mypage" >마이페이지</Link> </button> 
-              <button className="btn-nav">로그아웃</button>
+              <Link to="/mypage" > <button className="btn-nav"> 마이페이지</button> </Link>
+              <button className="btn-nav" >게시물 작성</button>
+              {/*    */}
             </> :
             <>
               <button className="btn-nav" onClick={onClickLogin}>로그인</button>
               <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
             </>
           }
-
-          {clickLogin ? <Login onClickLogin={onClickLogin} handleLoginSuccess={handleLoginSuccess}/> : <></>}
+          {clickLogin ? <Login onClickLogin={onClickLogin} issueAccessToken={issueAccessToken}/> : <></>}
           {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
         </span>
       </div>

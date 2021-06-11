@@ -4,13 +4,13 @@ import Login from "./Login"
 import Signup from "./Signup"
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
+import { withRouter } from 'react-router-dom';
 
-const MainPage = (props) => {
-  console.log(props);
+const MainPage = ({ accessToken , issueAccessToken}) => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav isLogin= {props.isLogin} handleLoginSuccess={props.handleLoginSuccess}/>
+        <Nav accessToken={accessToken} issueAccessToken={issueAccessToken}/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">전자기기 중고 거래 TechMarket</span>
@@ -52,4 +52,4 @@ const MainPage = (props) => {
   );
 };
 
-export default MainPage;
+export default withRouter(MainPage)
