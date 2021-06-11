@@ -5,11 +5,11 @@ import Signup from "./Signup";
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
 
-const MainPage = () => {
+const MainPage = (props) => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav />
+        <Nav/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">전자기기 중고 거래 TechMarket</span>
