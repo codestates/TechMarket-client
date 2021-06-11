@@ -11,7 +11,6 @@ const Signup = (props) =>{
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleIdInputValue = (key) => (e) => {
     setUsername({ [key]: e.target.value });
@@ -24,26 +23,29 @@ const Signup = (props) =>{
   };
 
   const handleSignup = async () => {
-    if(email.length !== 0 && password.length !== 0 && username.length !== 0) {
-      await axios.post(`${process.env.REACT_APP_API_URL}/user/signup`,
-      {
-        email: email.email,
-        password: password.password,
-        username: username.username,
-      },
-      {
-        headers: { "Content-Type": "application/json" }
-      })
-      .then(res => {
-        if(res.status === 201) {
-          console.log("성공입니다");
-        }
-      })
-      .catch(err => {
-        throw err;
-      })
-    } else {
-      setErrorMessage("모든 항목은 필수입니다.");
+    try {
+      if(email!== "" && password !== "" && username !== "") {
+        await axios.post(
+          `http://localhost:8080/user/signup`,
+        {
+          email: email.email,
+          password: password.password,
+          username: username.username,
+        },
+        {
+          headers: { "Content-Type": "application/json" }
+        })
+        .then(res => {
+          if(res.status === 201) {
+            alert("회원가입에 성공했습니다.");
+            handleClickClose();
+          }
+        })
+      } else {
+        alert("모든 항목은 필수입니다.");
+      }
+    } catch{
+      alert("이미 존재하는 계정입니다. \n 다른 계정으로 회원가입을 시도해주세요.!")
     }
   }
 
@@ -74,7 +76,6 @@ const Signup = (props) =>{
                     </div>
                     
                     <button className='btn-signup' type="submit" onClick={handleSignup}>회원가입</button>
-                    {errorMessage ? <div className="alert-box">{errorMessage}</div> : null}
                   </div>
                 </div>
               </div>
