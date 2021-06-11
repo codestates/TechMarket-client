@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import Nav from "../components/Nav"
 import '../styles/MyPage.css'
 
-const MyPage = () => {
+const MyPage = ({ isLogin }) => {
     const handleClickProfileButton = () => {
         // 사용자 정보 가져와서 출력하기
     }
@@ -15,7 +15,7 @@ const MyPage = () => {
 
     return (
         <>
-            <Nav/>
+            <Nav isLogin={isLogin}/>
                 <aside class ="profile-aside">
                     <button id="profile-aside-myprofile" onClick={handleClickProfileButton}>내 프로필</button>
                     <button id="profile-aside-myprofile" onClick={handleClickModifyButton}>내 정보 수정</button>

@@ -5,10 +5,9 @@ import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
 import { Link, BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-const Nav = (props) => {
+const Nav = ({ isLogin, handleLoginSuccess}) => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
-  const [isLogin, setislogin] = useState(false);
 
   const onClickLogin = () => {
     if(clickLogin) {
@@ -38,17 +37,19 @@ const Nav = (props) => {
           <button className="product-search-btn">검색</button>
         </div>
         <span>
-          {isLogin ?
-          <>
-            <button className="btn-nav"> <Link to="/mypage" setislogin={setislogin}>마이페이지</Link> </button> 
-            <button className="btn-nav">로그아웃</button>
-          </> :
-          <> <button className="btn-nav" onClick={onClickLogin}>로그인</button>
-            <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
-          </>
+          {
+            isLogin ?
+            <>
+              <button className="btn-nav"> <Link to="/mypage" >마이페이지</Link> </button> 
+              <button className="btn-nav">로그아웃</button>
+            </> :
+            <>
+              <button className="btn-nav" onClick={onClickLogin}>로그인</button>
+              <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
+            </>
           }
 
-          {clickLogin ? <Login onClickLogin={onClickLogin} setislogin={setislogin}/> : <></>}
+          {clickLogin ? <Login onClickLogin={onClickLogin} handleLoginSuccess={handleLoginSuccess}/> : <></>}
           {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
         </span>
       </div>

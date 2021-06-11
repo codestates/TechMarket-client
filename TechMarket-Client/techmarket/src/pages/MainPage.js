@@ -6,10 +6,11 @@ import Nav from "../components/Nav";
 import "../styles/MainPage.css";
 
 const MainPage = (props) => {
+  console.log(props);
   return (
     <>
       <div id="container-mainpage">
-        <Nav/>
+        <Nav isLogin= {props.isLogin} handleLoginSuccess={props.handleLoginSuccess}/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">전자기기 중고 거래 TechMarket</span>

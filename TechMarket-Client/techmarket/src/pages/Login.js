@@ -32,7 +32,7 @@ const Login = (props) => {
           if(res.status === 200) {
             alert("로그인에 성공했습니다.!");
             handleClickClose(); // 모달창 끄고
-            props.setislogin(true); // 로그인/회원가입이 쓰여있던 Nav 창이 마이페이지/로그아웃으로 바뀐다.
+            props.handleLoginSuccess();
           }
         })
       } else {
