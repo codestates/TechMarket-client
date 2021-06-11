@@ -6,7 +6,6 @@ import '../styles/LoginModal.css'
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
     
   const handleEmailInputValue = (key) => (e) => {
     setEmail({ [key]: e.target.value });
@@ -17,27 +16,30 @@ const Login = (props) => {
   };
 
   const handleLogin = async () => {
-    if (email !== "" && password !== "") {
-      await axios.post(
-        "http://localhost:8080/user/login",
-        {
-          email: email.email,
-          password: password.password,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then(res => {
-        if(res.status === 200) {
-          console.log("로그인에 성공했습니다.");
-          // 모달창 끄고
-          handleClickClose();
-
-          props.setislogin(true);
-          // 로그인/회원가입이 쓰여있던 Nav 창이 마이페이지/로그아웃으로 바뀐다.
-        }
-      });
+    try {
+      if (email !== "" && password !== "") {
+        await axios.post(
+          "http://localhost:8080/user/login",
+          {
+            email: email.email,
+            password: password.password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then(res => {
+          if(res.status === 200) {
+            alert("로그인에 성공했습니다.");
+            handleClickClose(); // 모달창 끄고
+            props.setislogin(true); // 로그인/회원가입이 쓰여있던 Nav 창이 마이페이지/로그아웃으로 바뀐다.
+          }
+        })
+      } else {
+        alert("모든 항목은 필수입니다.");
+      }
+    } catch {
+      alert("이메일 또는 비밀번호를 잘못 입력하셨습니다.\n 다시 시도해주세요");
     }
   };
   const handleClickClose = () => {
