@@ -1,9 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import Nav from "../components/Nav";
-
 import "../styles/ProductsPage.css";
+import img from "../images/profileImg.png";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  axios.get(
+    `http://localhost:8080/products`
+  )
+  .then(res => {
+    if(res.status === 200) {
+      setProducts(res.data);
+    } else {
+      alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
+    }
+  })
+
+
   return (
     <>
       <div id="products-container">
@@ -18,25 +32,25 @@ const Products = () => {
             </div>
           </div>
           <div className="body-products-outer-container">
-            <div className="body-products-container">
-              <div className="product-feature">
-                {/* <a href="#"></a> */}
-                <div className="product-photo">
-                  <img alt="" src="../images/Earl of Lemongrab.jpeg" />
-                </div>
-                <div className="product-info">
-                  <div className="product-title">레몬그랩</div>
-                  <div className="product-region">서울특별시</div>
-                  <div className="product-price-container">
-                    <span className="product-price-tag">14000원</span>
-                    <span className="product-users-watch">
-                      {/* 하트 이모지*/}32
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {
+              products.map(product => {
+                return (
+                  <div className="body-products" key={product.id}>
+                    <img src={img}></img>
+                    <div className="product-title">{product.title}</div>
+                    <div className="product-region">{product.category}</div>
+                    <div className="product-price-container">
+                      <span className="product-price-tag">{product.writerid}</span>
+                      <span className="product-users-watch">
+                        {/* 하트 이모지*/}32
+                      </span>
+                    </div>
+                  </div>    
+              )})
+            }  
+          
           </div>
+
         </div>
         <div id="products-footer"></div>
       </div>

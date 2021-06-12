@@ -57,6 +57,16 @@ body {
   margin-bottom: 40px;
 }
 
+.body-products-outer-container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.body-products {
+}
+
 .product-photo {
   display: flex;
   justify-content: center;
@@ -103,7 +113,7 @@ body {
   padding: 5px 25px 5px;
 }
 
-.product-info .product-price-container .product-price-tag {
+.body-products-outer-container .body-products .product-title {
   font-weight: 600;
   color: #ff8a3d;
   font-size: 15px;
