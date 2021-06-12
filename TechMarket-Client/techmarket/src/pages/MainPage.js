@@ -4,9 +4,15 @@ import React from "react";
 // import Signup from "./Signup";
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
-import img from "../images/Earl of Lemongrab.jpeg";
-import icon from "../images/mainpage_container1_icon.png";
+
 // import { withRouter } from 'react-router-dom';
+
+import img from "../images/Earl of Lemongrab.jpeg"
+import icon from "../images/mainpage_container1_icon.png"
+import { withRouter } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 
 const MainPage = ({ accessToken, issueAccessToken }) => {
   return (
@@ -35,7 +41,9 @@ const MainPage = ({ accessToken, issueAccessToken }) => {
               전자기기 중고거래, 지금 당장 시작해보세요
             </span>
             <span className="product-intro-paragraph">
-              <button>전체 상품 보러가기</button>
+              <button>
+                <Link to ="/products">전체 상품 보러가기</Link>
+              </button>
             </span>
           </div>
         </div>

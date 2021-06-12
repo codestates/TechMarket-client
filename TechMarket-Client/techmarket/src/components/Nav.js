@@ -50,15 +50,24 @@ const Nav = ({ accessToken, issueAccessToken }) => {
           </button>
         </div>
         <span>
-          {accessToken ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
+
+//           {accessToken ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
+//             <>
+//               <Link to="/mypage">
+//                 {" "}
+//                 <button className="btn-nav"> 마이페이지</button>{" "}
+//               </Link>
+//               <button className="btn-nav">게시물 작성</button>
+//             </>
+//           ) : (
+
+          { 
+            accessToken ? // accessToken을 발급받았으면 ( 로그인을 했으면)
             <>
-              <Link to="/mypage">
-                {" "}
-                <button className="btn-nav"> 마이페이지</button>{" "}
-              </Link>
-              <button className="btn-nav">게시물 작성</button>
-            </>
-          ) : (
+              <Link to="/mypage" > <button className="btn-nav"> 마이페이지</button> </Link>
+              <button className="btn-nav" >게시물 작성</button>
+            </> :
+
             <>
               <button className="btn-nav" onClick={onClickLogin}>
                 로그인
@@ -67,16 +76,22 @@ const Nav = ({ accessToken, issueAccessToken }) => {
                 회원가입
               </button>
             </>
-          )}
-          {clickLogin ? (
-            <Login
-              onClickLogin={onClickLogin}
-              issueAccessToken={issueAccessToken}
-            />
-          ) : (
-            <></>
-          )}
-          {clickSignup ? <Signup onClickSignup={onClickSignup} /> : <></>}
+
+//           )}
+//           {clickLogin ? (
+//             <Login
+//               onClickLogin={onClickLogin}
+//               issueAccessToken={issueAccessToken}
+//             />
+//           ) : (
+//             <></>
+//           )}
+//           {clickSignup ? <Signup onClickSignup={onClickSignup} /> : <></>}
+
+          }
+          {clickLogin ? <Login onClickLogin={onClickLogin} issueAccessToken={issueAccessToken}/> : <></>}
+          {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
+
         </span>
       </div>
     </>
