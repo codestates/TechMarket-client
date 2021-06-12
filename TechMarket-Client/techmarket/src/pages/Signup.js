@@ -24,13 +24,13 @@ const Signup = (props) =>{
 
   const handleSignup = async () => {
     try {
-      if(email!== "" && password !== "" && username !== "") {
+      if(email !== "" && password !== "" && username !== "") {
         await axios.post(
           `http://localhost:8080/user/signup`,
         {
           email: email.email,
-          password: password.password,
           username: username.username,
+          password: password.password,
         },
         {
           headers: { "Content-Type": "application/json" }
@@ -66,10 +66,10 @@ const Signup = (props) =>{
                   <div id="modal-title">
                     <div>회원가입</div>
                     <div className="modal-group">
-                      <input type='text' onChange={handleIdInputValue("username")} placeholder="아이디"></input>
+                      <input type='email' onChange={handleEmailInputValue("email")} placeholder="이메일"></input>
                     </div>
                     <div className="modal-group">
-                      <input type='email' onChange={handleEmailInputValue("email")} placeholder="이메일"></input>
+                      <input type='text' onChange={handleIdInputValue("username")} placeholder="닉네임"></input>
                     </div>
                     <div className="modal-group">
                       <input type='password' onChange={handlePasswordInputValue("password")} placeholder="비밀번호"></input>
