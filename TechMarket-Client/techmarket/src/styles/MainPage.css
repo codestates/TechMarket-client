@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 
 #container-mainpage {
@@ -17,16 +18,23 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: row;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 120px;
   padding-right: 50px;
+  background-color: rgb(197, 222, 236);
+  background-image: url("../images/mainpage_container1_background.png");
 }
 
 #section1 .container1 {
   max-width: 350px;
   margin-top: 150px;
   margin-bottom: 150px;
+}
+
+#section1 .container1 button {
+  border: 1px solid blue;
+  color: black;
 }
 
 #container-mainpage > #section1 .container1 {
@@ -37,7 +45,7 @@ body {
 
 #section1 .container1 .company-title {
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 500;
   color: black;
   margin-bottom: 30px;
 }
@@ -63,16 +71,18 @@ body {
 
 #section2 .container1 {
   display: inline-block;
+  width: 50px;
 }
 
 #section2 .container2 {
   max-width: 350px;
   margin-top: 150px;
   margin-bottom: 150px;
+  padding-left: 350px;
 }
 
 #section2 > .container2 .product-intro-title {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   color: black;
   margin-bottom: 30px;

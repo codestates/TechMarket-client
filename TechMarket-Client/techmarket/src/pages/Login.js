@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios"
 import '../styles/LoginModal.css'
+require('dotenv').config({path: __dirname + '/.env'})
+//var environment = process.env.NODE_ENV || 'development';
 
 const Login = ({ issueAccessToken, onClickLogin}) => {
   const [email, setEmail] = useState("");
