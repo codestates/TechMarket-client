@@ -31,15 +31,7 @@ const Nav = ({ accessToken, issueAccessToken}) => {
       setClickSignup(true);
     }
   };
-
-  //     setClickSignup(false);
-  //     setClickLogin(true);
-  //   };
-  //   const onClickSignup = () => {
-  //     setClickSignup(true);
-  //     setClickLogin(false);
-  //   };
-
+  
   return (
     <>
       <div id="nav">
@@ -69,13 +61,6 @@ const Nav = ({ accessToken, issueAccessToken}) => {
           }
           {clickLogin ? <Login onClickLogin={onClickLogin} issueAccessToken={issueAccessToken}/> : <></>}
           {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
-
-          {/* {clickLogin ? (
-            <Login onClickLogin={onClickLogin} />
-          ) : (
-            <></>
-          )}
-          {clickSignup ? <Signup onClickSignup={onClickSignup} /> : <></>} */}
         </span>
       </div>
     </>
