@@ -1,18 +1,10 @@
 import React from "react";
-// import SigninModal from "../components/SigninModal";
-// import Login from "./Login";
-// import Signup from "./Signup";
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
-
-// import { withRouter } from 'react-router-dom';
-
 import img from "../images/Earl of Lemongrab.jpeg"
 import icon from "../images/mainpage_container1_icon.png"
 import { withRouter } from 'react-router-dom';
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-
 
 const MainPage = ({ accessToken, issueAccessToken }) => {
   return (
@@ -29,7 +21,7 @@ const MainPage = ({ accessToken, issueAccessToken }) => {
             <button>소개영상보러가기</button>
           </div>
           <div className="container2">
-            <img alt="" src={icon}></img>
+            <img alt="이미지" src={icon}></img>
           </div>
         </div>
         <div id="section2">
