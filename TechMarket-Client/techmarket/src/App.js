@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router
 import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 import ProductsPage from "./pages/ProductsPage";
-import ProductsPage from "./pages/ProductsPage";
-import Post from "../pages/Post";
+import Post from "./pages/Post";
+import ProductPage from "./pages/ProductPage";
 
 class App extends Component {
   constructor(props){
