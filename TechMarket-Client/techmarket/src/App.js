@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router
 import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 import ProductsPage from "./pages/ProductsPage";
+import ProductsPage from "./pages/ProductsPage";
+import Post from "../pages/Post";
 
 class App extends Component {
   constructor(props){
@@ -35,8 +37,10 @@ class App extends Component {
         <div>
           <Route exact path="/" render={()=> <MainPage accessToken={this.state.accessToken} issueAccessToken={this.issueAccessToken}/>} />
           <Switch>
+            <Route path="/product" component={ProductPage} />
             <Route path="/mypage" render={() => <MyPage accessToken={this.state.accessToken}  onClickLogout={this.onClickLogout}/>}/>
             <Route path="/products" component={ProductsPage} />
+            <Route path="/post" component={Post} />
           </Switch>
         </div>
       </Router>
