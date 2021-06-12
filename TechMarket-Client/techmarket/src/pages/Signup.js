@@ -44,7 +44,7 @@ const Signup = (props) =>{
       } else {
         alert("모든 항목은 필수입니다.");
       }
-    } catch{
+    } catch {
       alert("이미 존재하는 계정입니다. \n 다른 계정으로 회원가입을 시도해주세요.!")
     }
   }
