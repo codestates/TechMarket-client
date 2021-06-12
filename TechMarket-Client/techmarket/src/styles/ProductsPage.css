@@ -132,6 +132,9 @@ body {
   letter-spacing: 2px;
 }
 
+
+/* .product-info .product-price-container .product-users-likes { */
+
 .body-products-outer-container .body-products .product-writer {
   font-size: 0.5rem;
   letter-spacing: 1px;
@@ -141,7 +144,15 @@ body {
   float: right;
 }
 /* .product-info .product-price-container .product-users-watch {
+
   display: inline-block;
+}
+
+.fas fa-heart {
+  color: black;
+}
+
+.product-users-watch {
   font-size: 14px;
   color: black;
 } */

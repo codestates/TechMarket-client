@@ -1,10 +1,21 @@
-import axios from "axios";
+
 import React, { useState } from "react";
 import Nav from "../components/Nav";
+import { Link } from "react-router-dom";
+
+
+import feature from "../images/Earl of Lemongrab.jpeg";
+
+import axios from "axios";
+
 import "../styles/ProductsPage.css";
 import img from "../images/profileImg.png";
 
 const Products = () => {
+
+  const [item, setItem] = useState(0);
+  const incrementItem = () => setItem(item + 1);
+
   const [products, setProducts] = useState([]);
 
   axios.get(
@@ -17,6 +28,7 @@ const Products = () => {
       alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
     }
   })
+
   return (
     <>
       <div id="products-container">
@@ -30,7 +42,7 @@ const Products = () => {
               TechMarket에서는 원하시는 상품을 어느 곳에서나 찾으실 수 있습니다
             </div>
           </div>
-          <div className="body-products-outer-container">
+
             {
               products.map(product => {
                 return (
@@ -47,7 +59,7 @@ const Products = () => {
                   </div>    
               )})
             }  
-          
+
           </div>
 
         </div>
