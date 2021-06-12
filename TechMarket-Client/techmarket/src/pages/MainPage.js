@@ -6,12 +6,13 @@ import Nav from "../components/Nav";
 import "../styles/MainPage.css";
 import img from "../images/Earl of Lemongrab.jpeg"
 import icon from "../images/mainpage_container1_icon.png"
+import { withRouter } from 'react-router-dom';
 
-const MainPage = (props) => {
+const MainPage = ({ accessToken , issueAccessToken}) => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav/>
+        <Nav accessToken={accessToken} issueAccessToken={issueAccessToken}/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">TechMarket</span>
@@ -65,5 +66,6 @@ const MainPage = (props) => {
     </>
   );
 };
-
+//export default withRouter(MainPage)
 export default MainPage;
+
