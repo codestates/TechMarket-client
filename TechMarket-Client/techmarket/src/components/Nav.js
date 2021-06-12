@@ -1,14 +1,11 @@
-
-import React, {useState} from "react";
-import Login from "../pages/Login"
-import Signup from "../pages/Signup"
-import MyPage from "../pages/MyPage";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
-import { Link, BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-const Nav = (props) => {
+const Nav = props => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
   const [isLogin, setislogin] = useState(false);
@@ -20,28 +17,28 @@ const Nav = (props) => {
   };
 
   const onClickLogin = () => {
-    if(clickLogin) {
+    if (clickLogin) {
       setClickLogin(false);
     } else {
       setClickLogin(true);
     }
-  }
+  };
 
   const onClickSignup = () => {
-    if(clickSignup) {
+    if (clickSignup) {
       setClickSignup(false);
     } else {
       setClickSignup(true);
     }
-  }
+  };
 
-//     setClickSignup(false);
-//     setClickLogin(true);
-//   };
-//   const onClickSignup = () => {
-//     setClickSignup(true);
-//     setClickLogin(false);
-//   };
+  //     setClickSignup(false);
+  //     setClickLogin(true);
+  //   };
+  //   const onClickSignup = () => {
+  //     setClickSignup(true);
+  //     setClickLogin(false);
+  //   };
 
   return (
     <>
@@ -59,19 +56,34 @@ const Nav = (props) => {
           </button>
         </div>
         <span>
-          {isLogin ?
-          <>
-            <button className="btn-nav"> <Link to="/mypage" setislogin={setislogin}>마이페이지</Link> </button> 
-            <button className="btn-nav">로그아웃</button>
-          </> :
-          <> <button className="btn-nav" onClick={onClickLogin}>로그인</button>
-            <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
-          </>
-          }
+          {isLogin ? (
+            <>
+              <button className="btn-nav">
+                {" "}
+                <Link to="/mypage" setislogin={setislogin}>
+                  마이페이지
+                </Link>{" "}
+              </button>
+              <button className="btn-nav">로그아웃</button>
+            </>
+          ) : (
+            <>
+              {" "}
+              <button className="btn-nav" onClick={onClickLogin}>
+                로그인
+              </button>
+              <button className="btn-nav" onClick={onClickSignup}>
+                회원가입
+              </button>
+            </>
+          )}
 
-          {clickLogin ? <Login onClickLogin={onClickLogin} setislogin={setislogin}/> : <></>}
-          {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
-
+          {clickLogin ? (
+            <Login onClickLogin={onClickLogin} setislogin={setislogin} />
+          ) : (
+            <></>
+          )}
+          {clickSignup ? <Signup onClickSignup={onClickSignup} /> : <></>}
         </span>
       </div>
     </>

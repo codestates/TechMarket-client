@@ -5,7 +5,7 @@
   width: 100%;
   padding-left: 7px;
   padding-right: 7px;
-  background-color: black;
+  background-color: #1a113d;
   z-index: 50;
   display: flex;
   justify-content: space-between;
@@ -19,8 +19,14 @@
   font-weight: 40;
 }
 
+.product-search {
+  width: 250px;
+  margin: 8px 2px;
+}
+
 #nav button {
   font-weight: 500;
+  margin: 5px;
 }
 
 button {
