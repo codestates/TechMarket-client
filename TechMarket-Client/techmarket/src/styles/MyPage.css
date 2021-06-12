@@ -1,11 +1,12 @@
 html {
     background-color: white;
 }
+
 .profile-aside {
     background-color: #ece9ff;
     flex-direction: column;
     width: 10rem;
-    height: 26rem;
+    height: 30rem;
     margin-top: 40px;
     align-items: center;
     float: left;
@@ -23,7 +24,7 @@ html {
     text-align: center;
     padding: 7px;
 }
-/* flex-wrap: nowrap; */
+
 .profile-title > span {
     font-size: 0.1px;
     font-weight: 50;
@@ -83,7 +84,10 @@ input {
     color:black;
     border-radius: 4px;
     background-color: rgb(230, 232, 233);
-    margin-left: 170px;
+    margin-left: 150px;
+    padding: 5px;
+    width: 75px;
+
 }
 
 img {

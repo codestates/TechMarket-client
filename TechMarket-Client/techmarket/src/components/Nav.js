@@ -42,9 +42,9 @@ const Nav = ({ accessToken, issueAccessToken}) => {
             placeholder="찾고 싶은 상품을 입력하세요"
             onChange={e => inputHandler(e)}
           ></input>
-          <button className="product-search-btn">
-            <Link to="/products">검색</Link>
-          </button>
+            <Link to="/products">
+            <button className="btn-nav" >검색</button>
+            </Link>
         </div>
         <span>
           { 

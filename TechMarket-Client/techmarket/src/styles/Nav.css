@@ -1,7 +1,7 @@
 #nav {
   position: fixed;
   top: 0;
-  height: 3rem;
+  height: 3.2rem;
   width: 100%;
   padding-left: 0.5rem;
   padding-right: 2rem;
@@ -18,6 +18,7 @@
   letter-spacing: 0.1rem;
   font-weight: 50;
   text-decoration: none;
+  margin-left: 1.5rem;
 }
 
 .title-link {
@@ -26,11 +27,13 @@
 
 .product-search {
   width: 14rem;
+  padding: 0.3rem;
   margin: 0.5rem 0.1rem;
 }
 
 #nav button {
   font-weight: 500;
+  font-size: 1rem;
   margin: 0.5rem;
 }
 
