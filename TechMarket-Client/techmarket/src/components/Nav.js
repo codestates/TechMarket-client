@@ -1,10 +1,7 @@
-
 import React, {useState} from "react";
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import MyPage from "../pages/MyPage";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 import { Link, BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
