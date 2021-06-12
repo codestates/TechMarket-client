@@ -111,8 +111,15 @@ body {
   margin-top: 6px;
 }
 
-.product-info .product-price-container .product-users-watch {
+.product-info .product-price-container .product-users-likes {
   display: inline-block;
+}
+
+.fas fa-heart {
+  color: black;
+}
+
+.product-users-watch {
   font-size: 14px;
   color: black;
 }
