@@ -1,7 +1,7 @@
 import React from "react";
-import SigninModal from '../components/SigninModal'
-import Login from "./Login"
-import Signup from "./Signup"
+import SigninModal from "../components/SigninModal";
+import Login from "./Login";
+import Signup from "./Signup";
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
 import { withRouter } from 'react-router-dom';
@@ -32,9 +32,6 @@ const MainPage = ({ accessToken , issueAccessToken}) => {
           </div>
           <div className="container2"></div>
         </div>
-        <div className="container2">
-          <img src="/* 삼성 사진 */"></img>
-        </div>
       </div>
       <div id="footer">
         <div className="company-title">
@@ -51,5 +48,6 @@ const MainPage = ({ accessToken , issueAccessToken}) => {
     </>
   );
 };
+//export default withRouter(MainPage)
+export default MainPage;
 
-export default withRouter(MainPage)

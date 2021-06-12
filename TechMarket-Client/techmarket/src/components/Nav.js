@@ -1,13 +1,22 @@
+
 import React, {useState} from "react";
 import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import MyPage from "../pages/MyPage";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Nav.css";
 import { Link, BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 const Nav = ({ accessToken, issueAccessToken}) => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
+
+  const [search, setSearch] = useState("");
+
+  const inputHandler = e => {
+    setSearch(e.target.value);
+  };
 
   const onClickLogin = () => {
     if(clickLogin) {
@@ -25,6 +34,14 @@ const Nav = ({ accessToken, issueAccessToken}) => {
     }
   }
 
+//     setClickSignup(false);
+//     setClickLogin(true);
+//   };
+//   const onClickSignup = () => {
+//     setClickSignup(true);
+//     setClickLogin(false);
+//   };
+
   return (
     <>
       <div id="nav">
@@ -32,9 +49,13 @@ const Nav = ({ accessToken, issueAccessToken}) => {
         <div className="search">
           <input
             className="product-search"
+            value={search}
             placeholder="찾고 싶은 상품을 입력하세요"
+            onChange={e => inputHandler(e)}
           ></input>
-          <button className="product-search-btn">검색</button>
+          <button className="product-search-btn">
+            <Link to="/products">검색</Link>
+          </button>
         </div>
         <span>
           {
@@ -51,6 +72,7 @@ const Nav = ({ accessToken, issueAccessToken}) => {
           }
           {clickLogin ? <Login onClickLogin={onClickLogin} issueAccessToken={issueAccessToken}/> : <></>}
           {clickSignup ? <Signup onClickSignup={onClickSignup}/> : <></>}
+
         </span>
       </div>
     </>

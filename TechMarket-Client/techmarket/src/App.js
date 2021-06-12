@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
+import ProductsPage from "./pages/ProductsPage";
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -34,12 +36,12 @@ class App extends Component {
           <Route exact path="/" render={()=> <MainPage accessToken={this.state.accessToken} issueAccessToken={this.issueAccessToken}/>} />
           <Switch>
             <Route path="/mypage" render={() => <MyPage accessToken={this.state.accessToken}  onClickLogout={this.onClickLogout}/>}/>
+            <Route path="/products" component={ProductsPage} />
           </Switch>
         </div>
       </Router>
     );
   }
 }
-
 export default withRouter(App);
-//export default App;
+
