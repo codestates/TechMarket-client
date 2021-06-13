@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-// import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Nav = ({ accessToken, issueAccessToken }) => {
+
+const Nav = () => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
-
   const [search, setSearch] = useState("");
 
   const inputHandler = e => {
@@ -50,9 +49,9 @@ const Nav = ({ accessToken, issueAccessToken }) => {
           </button>
         </div>
         <span>
-          {accessToken ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
+          {localStorage.getItem('tech_auth') ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
             <>
-              <Link to="/mypage">
+              <Link to="/user/info">
                 {" "}
                 <button className="btn-nav"> 마이페이지</button>{" "}
               </Link>
@@ -71,7 +70,6 @@ const Nav = ({ accessToken, issueAccessToken }) => {
           {clickLogin ? (
             <Login
               onClickLogin={onClickLogin}
-              issueAccessToken={issueAccessToken}
             />
           ) : (
             <></>

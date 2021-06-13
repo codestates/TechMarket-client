@@ -1,24 +1,15 @@
 import React from "react";
-// import SigninModal from "../components/SigninModal";
-// import Login from "./Login";
-// import Signup from "./Signup";
 import Nav from "../components/Nav";
 import "../styles/MainPage.css";
-
-// import { withRouter } from 'react-router-dom';
-
 import img from "../images/Earl of Lemongrab.jpeg"
 import icon from "../images/mainpage_container1_icon.png"
-import { withRouter } from 'react-router-dom';
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-
-
-const MainPage = ({ accessToken, issueAccessToken }) => {
+const MainPage = () => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav accessToken={accessToken} issueAccessToken={issueAccessToken} />
+        <Nav/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">TechMarket</span>
@@ -75,5 +66,4 @@ const MainPage = ({ accessToken, issueAccessToken }) => {
     </>
   );
 };
-//export default withRouter(MainPage)
 export default MainPage;

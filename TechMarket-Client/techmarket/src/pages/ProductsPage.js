@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
-import { Link } from "react-router-dom";
-
-import feature from "../images/Earl of Lemongrab.jpeg";
-
 import axios from "axios";
-
 import "../styles/ProductsPage.css";
 import img from "../images/profileImg.png";
 
@@ -40,7 +35,7 @@ const Products = () => {
           {products.map(product => {
             return (
               <div className="body-products" key={product.id}>
-                <img src={img}></img>
+                <img src={img} alt=""></img>
                 <div className="product-title">{product.title}</div>
                 <div className="product-category">{product.category}</div>
                 <div className="product-writer-container">
