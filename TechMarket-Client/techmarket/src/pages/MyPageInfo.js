@@ -1,7 +1,11 @@
 import React from "react";
 import profile from "../images/profileImg.png";
+import badge1 from "../images/1st_badge.png";
+import badge2 from "../images/2nd_badge.png";
+import badge3 from "../images/3rd_badge.png";
 
 const MyPageInfo = ({ userInfo, onClickLogout }) => {
+  const deal_count = userInfo.deal_count;
   return (
     <>
       <section className="profile-section">
@@ -12,7 +16,9 @@ const MyPageInfo = ({ userInfo, onClickLogout }) => {
         <div className="profile-info">
           <span>기본정보</span>
           <div className="profile-group">
-            <img src={profile} alt="프로필" />
+            {
+              deal_count < 10? <img src={badge3} alt=""/> : (deal_count < 20 ? <img src={badge2} alt=""/> : <img src={badge1} alt=""/>)
+            }
           </div>
           <div className="profile-group">
             <span>이메일 </span>
