@@ -7,7 +7,7 @@ require("dotenv").config();
 
 ReactDOM.render(
   <BrowserRouter>
-    <MainPage />
+    <App />
   </BrowserRouter>,
   document.getElementById("root")
 );
