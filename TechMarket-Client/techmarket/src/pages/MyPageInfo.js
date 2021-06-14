@@ -1,5 +1,7 @@
 import React from "react";
 import profile from "../images/profileImg.png";
+import badge from "../images/1st_badge.png";
+
 
 const MyPageInfo = ({ userInfo, onClickLogout }) => {
   return (
@@ -12,7 +14,7 @@ const MyPageInfo = ({ userInfo, onClickLogout }) => {
         <div className="profile-info">
           <span>기본정보</span>
           <div className="profile-group">
-            <img src={profile} alt="프로필" />
+            <img src={badge} alt="badge" />
           </div>
           <div className="profile-group">
             <span>이메일 </span>
