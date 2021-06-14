@@ -55,8 +55,7 @@ const Nav = () => {
           {localStorage.getItem('tech_auth') ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
             <>
               <Link to="/user/info">
-                {" "}
-                <button className="btn-nav"> 마이페이지</button>{" "}
+                <button className="btn-nav"> 마이페이지</button>
               </Link>
               <Link to="/post">
                 <button className="btn-nav">게시물 작성</button>

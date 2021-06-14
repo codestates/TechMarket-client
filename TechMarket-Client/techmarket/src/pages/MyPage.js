@@ -6,7 +6,7 @@ import MyPageInfo from "./MyPageInfo";
 import MyPageModify from "./MyPageModify";
 import axios from "axios";
 
-const MyPage = ({ accessToken, onClickLogout }) => {
+const MyPage = ({onClickLogout }) => {
   const [isProfile, setIsProfile] = useState(true); // 내 프로필 버튼을 눌렀는지, 내 정보 수정 버튼을 눌렀는지 확인하기 위해
   const [userInfo, setUserInfo] = useState({});
 
