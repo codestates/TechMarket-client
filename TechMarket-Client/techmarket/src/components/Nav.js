@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-// import MyPage from "../pages/MyPage";
+import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Nav = ({ accessToken, issueAccessToken }) => {
+const Nav = () => {
   const [clickLogin, setClickLogin] = useState(false);
   const [clickSignup, setClickSignup] = useState(false);
-
   const [search, setSearch] = useState("");
 
   const inputHandler = e => {
     setSearch(e.target.value);
+    console.log(search);
   };
 
   const onClickLogin = () => {
@@ -30,14 +30,11 @@ const Nav = ({ accessToken, issueAccessToken }) => {
       setClickSignup(true);
     }
   };
-
+  
   return (
     <>
       <div id="nav">
-        <Link to="/" className="title-link">
-          {" "}
-          <span className="title">TechMarket</span>{" "}
-        </Link>
+        <Link to ="/" className="title-link"> <span className="title">TechMarket</span> </Link>
         <div className="search">
           <input
             className="product-search"
@@ -55,9 +52,9 @@ const Nav = ({ accessToken, issueAccessToken }) => {
           </Link>
         </div>
         <span>
-          {accessToken ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
+          {localStorage.getItem('tech_auth') ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
             <>
-              <Link to="/mypage">
+              <Link to="/user/info">
                 {" "}
                 <button className="btn-nav"> 마이페이지</button>{" "}
               </Link>
@@ -67,18 +64,13 @@ const Nav = ({ accessToken, issueAccessToken }) => {
             </>
           ) : (
             <>
-              <button className="btn-nav" onClick={onClickLogin}>
-                로그인
-              </button>
-              <button className="btn-nav" onClick={onClickSignup}>
-                회원가입
-              </button>
+              <button className="btn-nav" onClick={onClickLogin}>로그인</button>
+              <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
             </>
           )}
           {clickLogin ? (
             <Login
               onClickLogin={onClickLogin}
-              issueAccessToken={issueAccessToken}
             />
           ) : (
             <></>

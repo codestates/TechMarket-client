@@ -15,26 +15,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      accessToken: "" // 로그인 완료하면 accessToken을 state에 저장한다.
+      userInfo: {},
     };
-    this.issueAccessToken = this.issueAccessToken.bind(this);
     this.onClickLogout = this.onClickLogout.bind(this);
+    this.setUserInfo = this.setUserInfo.bind(this);
   }
 
-  issueAccessToken = token => {
+  setUserInfo = (info) => {
     this.setState({
-      accessToken: token
-    });
-    console.log(token);
-  };
+      ...info
+    })
+  }
 
   onClickLogout = () => {
     alert("로그아웃 하시겠습니까?");
-    this.setState({
-      accessToken: ""
-    });
-    window.location = "/";
-  };
+    localStorage.removeItem('tech_auth'); //localstorage에 저장된 토큰 삭제
+    window.location = "/"; // 메인 화면으로 이동
+  }
 
   render() {
     return (
@@ -44,19 +41,15 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <MainPage
-                accessToken={this.state.accessToken}
-                issueAccessToken={this.issueAccessToken}
-              />
+              <MainPage/>
             )}
           />
           <Switch>
             <Route path="/show/:id" component={ProductPage} />
             <Route
-              path="/mypage"
+              path="/user/info"
               render={() => (
                 <MyPage
-                  accessToken={this.state.accessToken}
                   onClickLogout={this.onClickLogout}
                 />
               )}

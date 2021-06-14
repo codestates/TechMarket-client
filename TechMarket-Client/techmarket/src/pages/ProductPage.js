@@ -1,32 +1,55 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
-
 import img from "../images/Earl of Lemongrab.jpeg";
-
 import "../styles/ProductPage.css";
 import axios from "axios";
 
+// // props === {accessToken, issueAccessToken}
+// const Product = props => {
+//   console.log(props.match.params.id);
+//   console.log(props);
+//   const [product, setProduct] = useState([]);
+
+//   // const id = props.location.state.id;
+//   // console.log(id);
+//   const id = props.match.params.id;
+//   console.log(id);
+
+//   axios.get(`http://localhost:8080/board?id=${id}`).then(res => {
+//     if (res.status === 200) {
+//       console.log(res.data);
+//       setProduct(res.data);
+//     } else {
+//       alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
+//     }
+//   });
+
+
 // props === {accessToken, issueAccessToken}
-const Product = props => {
-  console.log(props.match.params.id);
-  console.log(props);
+const Product = (props) => {
+  
   const [product, setProduct] = useState([]);
 
   // const id = props.location.state.id;
   // console.log(id);
-  const id = props.match.params.id;
-  console.log(id);
-
-  axios.get(`http://localhost:8080/board?id=${id}`).then(res => {
-    if (res.status === 200) {
-      console.log(res.data);
-      setProduct(res.data);
-    } else {
-      alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
+  useEffect(() => {
+    axios
+    .get(`http://localhost:8080/board?id=${props.location.state.id}`)
+    .then(res => {
+      if (res.status === 200) {
+        setProduct(res.data);
+      } else {
+        alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    return () => {
+      console.log("");
     }
-  });
-
+  },[]);
+  
   return (
     <>
       <div id="product-container">

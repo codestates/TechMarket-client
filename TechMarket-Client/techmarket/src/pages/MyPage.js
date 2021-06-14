@@ -4,25 +4,36 @@ import Nav from "../components/Nav";
 import "../styles/MyPage.css";
 import MyPageInfo from "./MyPageInfo";
 import MyPageModify from "./MyPageModify";
+import axios from "axios";
 
 const MyPage = ({ accessToken, onClickLogout }) => {
   const [isProfile, setIsProfile] = useState(true); // 내 프로필 버튼을 눌렀는지, 내 정보 수정 버튼을 눌렀는지 확인하기 위해
+  const [userInfo, setUserInfo] = useState({});
+
+  axios.get( //사용자 정보를 요청하기 위해 가지고 있는 토큰을 헤더에 포함해서 보낸다.
+      `http://localhost:8080/user/info`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('tech_auth')}`,
+          "Content-Type": "application/json",
+        }
+      }
+  )
+  .then(res => {
+      setUserInfo(res.data);
+  })
 
   const handleClickProfileButton = () => {
-    // 사용자 정보 가져와서 출력하기 위해 서버에 요청하기
     setIsProfile(true);
   };
 
   const handleClickModifyButton = () => {
-    // 사용자 정보 가져와서 출력하기 위해 서버에 요청하기
-    // 새로 입력된 사용자 정보 데이터베이스에 저장하기 위해 서버에 요청하기
     setIsProfile(false);
   };
 
   return (
     <>
-      <Nav accessToken={accessToken} />
-      <aside class="profile-aside">
+      <Nav/>
+      <aside className="profile-aside">
         <button id="profile-aside-myprofile" onClick={handleClickProfileButton}>
           내 프로필
         </button>
@@ -31,9 +42,9 @@ const MyPage = ({ accessToken, onClickLogout }) => {
         </button>
       </aside>
       {isProfile ? (
-        <MyPageInfo onClickLogout={onClickLogout} />
+        <MyPageInfo userInfo={userInfo} onClickLogout={onClickLogout} />
       ) : (
-        <MyPageModify />
+        <MyPageModify userInfo={userInfo}/>
       )}
     </>
   );
