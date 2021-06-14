@@ -55,10 +55,10 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
             <div id="modal-container">
               <div id="modal-header">
                 <div>TechMarket</div>
-                <button
+                <button 
                   className="modal-btn"
                   onClick={() => handleClickClose()}
-                ></button>
+                >X</button>
               </div>
               <div id="modal-section">
                 <div className="modal-title">

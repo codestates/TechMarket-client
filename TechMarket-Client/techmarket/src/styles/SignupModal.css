@@ -36,8 +36,9 @@
 
 .modal-btn {
     position: absolute;
-    top: 10px;
-    left: 170px;
+    top: 1px;
+    left: 160px;
+    color: rgb(129, 163, 207);
 }
 
 .btn-signup {
