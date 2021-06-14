@@ -33,7 +33,7 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
             if (res.status === 200) {
               alert("로그인에 성공했습니다.");
               handleClickClose();
-              localStorage.setItem('tech_auth', res.data.result.access_token); //받은 토큰 localStorage에 저장
+              localStorage.setItem("tech_auth", res.data.result.access_token); //받은 토큰 localStorage에 저장
               window.location.reload(); //화면 재렌더링
             }
           });
@@ -55,10 +55,12 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
             <div id="modal-container">
               <div id="modal-header">
                 <div>TechMarket</div>
-                <button 
+                <button
                   className="modal-btn"
                   onClick={() => handleClickClose()}
-                >X</button>
+                >
+                  X
+                </button>
               </div>
               <div id="modal-section">
                 <div className="modal-title">
