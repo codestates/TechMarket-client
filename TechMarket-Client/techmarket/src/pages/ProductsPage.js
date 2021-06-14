@@ -19,7 +19,7 @@ const Products = props => {
       .then(res => {
         if (res.status === 200) {
           console.log(res.data.data.result[0].thumbnail); //사진
-          console.log(res);
+          console.log(res.data.data.result);
           setProducts(res.data.data.result);
         } else {
             alert(

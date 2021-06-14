@@ -36,11 +36,7 @@ const Post = ({name}) => {
         formData.append("title", title);
         formData.append("content", summary);
         formData.append("registday", getCurrentDate());
-
-        for (var pair of formData.entries()) {
-          console.log(pair[0]+ ', ' + pair[1]); 
-        }
-
+        
         await axios.post (
           `http://localhost:8080/mypage/upload`,
           formData,
