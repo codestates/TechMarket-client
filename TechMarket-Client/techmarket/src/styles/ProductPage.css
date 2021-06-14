@@ -10,7 +10,6 @@ body {
   background-color: white;
   text-align: center;
   margin-top: 40px;
-  border: 1px solid;
 }
 
 .product-intro {
@@ -18,11 +17,19 @@ body {
   display: block;
   justify-content: center;
   align-items: center;
+  margin: 5px;
+}
+
+.product-photo-content-box {
+  display: flex;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-photo {
   margin: 25px 35px;
-  width: 430px;
+  width: 450px;
   height: 270px;
 }
 

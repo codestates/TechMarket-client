@@ -45,7 +45,7 @@ class App extends Component {
             )}
           />
           <Switch>
-            <Route path="/show" component={ProductPage} />
+            <Route path="/show/:id" component={ProductPage} />
             <Route
               path="/user/info"
               render={() => (
@@ -56,7 +56,6 @@ class App extends Component {
             />
             <Route path="/products" component={ProductsPage} />
             <Route path="/post" component={Post} />
-            <Route />
           </Switch>
         </div>
       </Router>

@@ -4,6 +4,27 @@ import img from "../images/Earl of Lemongrab.jpeg";
 import "../styles/ProductPage.css";
 import axios from "axios";
 
+// // props === {accessToken, issueAccessToken}
+// const Product = props => {
+//   console.log(props.match.params.id);
+//   console.log(props);
+//   const [product, setProduct] = useState([]);
+
+//   // const id = props.location.state.id;
+//   // console.log(id);
+//   const id = props.match.params.id;
+//   console.log(id);
+
+//   axios.get(`http://localhost:8080/board?id=${id}`).then(res => {
+//     if (res.status === 200) {
+//       console.log(res.data);
+//       setProduct(res.data);
+//     } else {
+//       alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
+//     }
+//   });
+
+
 // props === {accessToken, issueAccessToken}
 const Product = (props) => {
   
@@ -29,19 +50,21 @@ const Product = (props) => {
     }
   },[]);
   
-
   return (
     <>
       <div id="product-container">
         <Nav />
         <div className="product-intro">
-          <div className="product-photo">
-            <img alt="" src={img} />
+          <div className="product-photo-content-box">
+            <div className="product-photo">
+              <img alt="" src={img} />
+            </div>
+            <div className="product-seller-info">
+              <div className="product-seller-name">{product.writerid}</div>
+              <div className="product-seller-comment">{product.content}</div>
+            </div>
           </div>
-          <div className="product-seller-info">
-            <div className="product-seller-name">{product.writerid}</div>
-            <div className="product-seller-comment">{product.content}</div>
-          </div>
+
           <div className="product-modal-chats-container">
             <div className="product-chat-box">
               <input
