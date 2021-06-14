@@ -1,3 +1,4 @@
+
 html {
     background-color: white;
 }
@@ -49,7 +50,6 @@ html {
     border: 0px;
     border-radius: 2px;
     padding: 5px;
-    color: white;
     background: rgb(129, 163, 207);
 }
     
@@ -64,5 +64,5 @@ div.modal-group > span {
 
 input {
     border: none;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid rgb(111, 111, 114);
 }

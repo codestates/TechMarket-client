@@ -9,6 +9,7 @@ const Post = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [category, setCategory] = useState("notebook");
+  const [selectedFile, setSelectedFile] = useState("");
 
   const inputTitleHandler = e => {
     setTitle(e.target.value);
@@ -21,15 +22,35 @@ const Post = () => {
   const handleUploadPost = async () => {
     try {
       if(title !== "" && summary !== "") {
+        console.log("버튼 누름");
+
+        const formData = new FormData();
+        console.log(selectedFile.name);
+        formData.append('photos',selectedFile);
+        for (let i = 0; i < selectedFile.length; i++) {
+          formData.append('photos', selectedFile[i]);
+        }
+        formData.append('writerid', "jiwon");
+        formData.append("category", category);
+        formData.append("title", title);
+        formData.append("content", summary);
+        formData.append("registday", getCurrentDate());
+
+        for (var pair of formData.entries()) {
+          console.log(pair[0]+ ', ' + pair[1]); 
+        }
+
         await axios.post (
           `http://localhost:8080/mypage/upload`,
-          {
-            writerid: "jiwon", //나중에 작성자 아이디로 바꾸기
-            category: category,
-            title: title,
-            content: summary,
-            registday: getCurrentDate(),
-          })
+          formData,
+          // {
+          //   headers: {
+          //     'content-type':
+          //         'multipart/form-data',
+          // },
+          // withCredentials: true,
+          // }
+          )
           .then(res => {
             if(res.status === 200) {
               alert("게시물 작성이 완료되었습니다.");
@@ -39,13 +60,19 @@ const Post = () => {
         alert("모든 항목은 필수입니다.");
         // 게시물 목록 화면으로 이동하기
       }
-    } catch {
+    } catch(err) {
+      console.log(err)
       alert("예상치 못한 에러가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
     }
   }
 
   const handleCategory = (event) => {
     setCategory(event.target.value);
+  }
+
+  const selectFile = (e) => {
+    setSelectedFile([...selectedFile, e.target.files[0]]); //[...selectedFile, e.target.files[0]]
+    console.log(e.target.files);
   }
 
   const getCurrentDate = () => {
@@ -69,6 +96,7 @@ const Post = () => {
 
     return `${year}-${month}-${day} ${hour}:${minute}:${seconds}`;
   }
+ 
 
   return (
     <>
@@ -98,7 +126,9 @@ const Post = () => {
               onChange={e => {
                 inputSummaryHandler(e);
               }}
-            ></input>
+            >
+            </input>
+            <input type="file" name="myFile" onChange={selectFile}></input>
           </div>
           <div className="product-post-btn-container">
             <button className="product-post-btn" onClick={handleUploadPost}>글쓰기</button>

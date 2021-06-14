@@ -1,9 +1,9 @@
 import React, { useState} from "react";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
 import { Link } from "react-router-dom";
-
 
 const Nav = () => {
   const [clickLogin, setClickLogin] = useState(false);
@@ -12,6 +12,7 @@ const Nav = () => {
 
   const inputHandler = e => {
     setSearch(e.target.value);
+    console.log(search);
   };
 
   const onClickLogin = () => {
@@ -29,14 +30,11 @@ const Nav = () => {
       setClickSignup(true);
     }
   };
-
+  
   return (
     <>
       <div id="nav">
-        <Link to="/" className="title-link">
-          {" "}
-          <span className="title">TechMarket</span>{" "}
-        </Link>
+        <Link to ="/" className="title-link"> <span className="title">TechMarket</span> </Link>
         <div className="search">
           <input
             className="product-search"
@@ -44,9 +42,11 @@ const Nav = () => {
             placeholder="찾고 싶은 상품을 입력하세요"
             onChange={e => inputHandler(e)}
           ></input>
-          <button className="product-search-btn">
-            <Link to="/products">검색</Link>
-          </button>
+            <button className="product-search-btn">
+              <Link to={{pathname:"/products", state:{search: search}}}>
+                검색
+              </Link>
+            </button>
         </div>
         <span>
           {localStorage.getItem('tech_auth') ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
@@ -59,12 +59,8 @@ const Nav = () => {
             </>
           ) : (
             <>
-              <button className="btn-nav" onClick={onClickLogin}>
-                로그인
-              </button>
-              <button className="btn-nav" onClick={onClickSignup}>
-                회원가입
-              </button>
+              <button className="btn-nav" onClick={onClickLogin}>로그인</button>
+              <button className="btn-nav" onClick={onClickSignup}>회원가입</button>
             </>
           )}
           {clickLogin ? (
