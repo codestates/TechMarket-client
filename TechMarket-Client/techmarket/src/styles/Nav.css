@@ -27,6 +27,7 @@
 .product-search {
   width: 250px;
   margin: 8px 2px;
+  border-radius: 5px;
 }
 
 #nav button {

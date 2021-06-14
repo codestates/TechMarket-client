@@ -45,9 +45,14 @@ const Nav = ({ accessToken, issueAccessToken }) => {
             placeholder="찾고 싶은 상품을 입력하세요"
             onChange={e => inputHandler(e)}
           ></input>
-          <button className="product-search-btn">
-            <Link to="/products">검색</Link>
-          </button>
+          <Link
+            to={{
+              pathname: `/products`,
+              state: { search: search }
+            }}
+          >
+            <button className="product-search-btn">검색</button>
+          </Link>
         </div>
         <span>
           {accessToken ? ( // accessToken을 발급받았으면 ( 로그인을 했으면)
@@ -56,7 +61,9 @@ const Nav = ({ accessToken, issueAccessToken }) => {
                 {" "}
                 <button className="btn-nav"> 마이페이지</button>{" "}
               </Link>
-              <button className="btn-nav">게시물 작성</button>
+              <Link to="/post">
+                <button className="btn-nav">게시물 작성</button>
+              </Link>
             </>
           ) : (
             <>

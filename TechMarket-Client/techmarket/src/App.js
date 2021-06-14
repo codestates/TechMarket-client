@@ -11,9 +11,6 @@ import ProductPage from "./pages/ProductPage";
 import ProductsPage from "./pages/ProductsPage";
 import Post from "./pages/Post";
 
-
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +51,7 @@ class App extends Component {
             )}
           />
           <Switch>
-            <Route path="/show" component={ProductPage} />
+            <Route path="/show/:id" component={ProductPage} />
             <Route
               path="/mypage"
               render={() => (
@@ -66,7 +63,6 @@ class App extends Component {
             />
             <Route path="/products" component={ProductsPage} />
             <Route path="/post" component={Post} />
-            <Route />
           </Switch>
         </div>
       </Router>
