@@ -13,6 +13,7 @@ const Nav = ({ accessToken, issueAccessToken}) => {
 
   const inputHandler = e => {
     setSearch(e.target.value);
+    console.log(search);
   };
 
   const onClickLogin = () => {
@@ -42,9 +43,11 @@ const Nav = ({ accessToken, issueAccessToken}) => {
             placeholder="찾고 싶은 상품을 입력하세요"
             onChange={e => inputHandler(e)}
           ></input>
-            <Link to="/products">
-            <button className="btn-nav" >검색</button>
-            </Link>
+            <button className="product-search-btn">
+              <Link to={{pathname:"/products", state:{search: search}}}>
+                검색
+              </Link>
+            </button>
         </div>
         <span>
           { 
