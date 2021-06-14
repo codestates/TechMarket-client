@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/LoginModal.css";
 require("dotenv").config({ path: __dirname + "/.env" });
-
-const Login = ({ issueAccessToken, onClickLogin }) => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,7 +33,9 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
               alert("로그인에 성공했습니다.");
               handleClickClose();
               localStorage.setItem("tech_auth", res.data.result.access_token); //받은 토큰 localStorage에 저장
+              localStorage.setItem("username", res.data.response.username); // 로그인한 유저 localStorage에 저장
               window.location.reload(); //화면 재렌더링
+              
             }
           });
       } else {
@@ -45,7 +46,7 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
     }
   };
   const handleClickClose = () => {
-    onClickLogin(false);
+    props.onClickLogin(false);
   };
   return (
     <>

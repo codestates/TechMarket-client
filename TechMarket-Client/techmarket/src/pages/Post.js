@@ -5,7 +5,8 @@ import Nav from "../components/Nav";
 
 import "../styles/Post.css";
 
-const Post = () => {
+const Post = ({name}) => {
+  console.log(name);
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [category, setCategory] = useState("notebook");
@@ -30,7 +31,7 @@ const Post = () => {
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append('photos', selectedFile[i]);
         }
-        formData.append('writerid', "jiwon");
+        formData.append('writerid', localStorage.getItem('username'));
         formData.append("category", category);
         formData.append("title", title);
         formData.append("content", summary);
@@ -54,11 +55,11 @@ const Post = () => {
           .then(res => {
             if(res.status === 200) {
               alert("게시물 작성이 완료되었습니다.");
+               // 게시물 목록 화면으로 이동하기
             }
           })
       } else {
-        alert("모든 항목은 필수입니다.");
-        // 게시물 목록 화면으로 이동하기
+        alert("모든 항목은 필수입니다.");      
       }
     } catch(err) {
       console.log(err)

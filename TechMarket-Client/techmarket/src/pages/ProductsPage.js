@@ -11,51 +11,31 @@ const Products = props => {
   const incrementItem = () => setItem(item + 1);
   const [products, setProducts] = useState([]);
 
-  if (props.location.history) {
-    //검색어를 입력하고 들어왔으면
+  if (props.location.state) { //검색어를 입력하고 들어왔으면
     const word = props.location.state.search;
     axios
-      .get(`http://localhost:8080/search?search_word=${word}`, {})
+      .get(`http://localhost:8080/search?search_word=${word}`,{
+      })
       .then(res => {
-        console.log(res.data.data.result);
         if (res.status === 200) {
-          // if (props.location.state) { //검색어를 입력하고 들어왔으면
-          //   const word = props.location.state.search;
-          //   axios
-          //     .get(`http://localhost:8080/search?search_word=${word}`,{
-          //     })
-          //     .then(res => {
-          //       if (res.status === 200) {
-          //console.log(res.data.data.result[0].thumbnail); //사진
+          console.log(res.data.data.result[0].thumbnail); //사진
           console.log(res);
           setProducts(res.data.data.result);
         } else {
-          alert(
-            "예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요."
-          );
+            alert(
+              "예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요."
+            );
+          }
+      });
+  } else {
+      //전체 상품 보기를 입력하고 들어왔으면
+      axios.get(`http://localhost:8080/products`).then(res => {
+        if (res.status === 200) {
+          setProducts(res.data);
+        } else {
+          alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
         }
       });
-
-    //   } else {
-    //     //전체 상품 보기를 입력하고 들어왔으면
-    //     axios.get(`http://localhost:8080/products`).then(res => {
-    //       console.log(res.data);
-    //       if (res.status === 200) {
-    //         setProducts(res.data);
-    //       } else {
-    //         alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
-    //       }
-    //     });
-    //   }
-  } else {
-    //전체 상품 보기를 입력하고 들어왔으면
-    axios.get(`http://localhost:8080/products`).then(res => {
-      if (res.status === 200) {
-        setProducts(res.data);
-      } else {
-        alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
-      }
-    });
   }
   return (
     <>
