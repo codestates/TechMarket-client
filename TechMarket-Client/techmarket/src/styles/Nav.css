@@ -1,10 +1,10 @@
 #nav {
   position: fixed;
   top: 0;
-  height: 40px;
+  height: 3.2rem;
   width: 100%;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 0.5rem;
+  padding-right: 2rem;
   background-color: rgb(2, 2, 71);
   z-index: 50;
   display: flex;
@@ -13,11 +13,12 @@
 }
 
 #nav .title {
-  font-size: 20px;
+  font-size: 1.3rem;
   color: white;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.1rem;
   font-weight: 50;
   text-decoration: none;
+  margin-left: 1.5rem;
 }
 
 .title-link {
@@ -25,21 +26,23 @@
 }
 
 .product-search {
-  width: 250px;
-  margin: 8px 2px;
+  width: 14rem;
+  padding: 0.3rem;
+  margin: 0.5rem 0.1rem;
 }
 
 #nav button {
   font-weight: 500;
-  margin: 5px;
+  font-size: 1rem;
+  margin: 0.5rem;
 }
 
 button {
   background: transparent;
-  font-size: 14px;
+  font-size: 0.8rem;
   color: white;
   border: 0;
-  border-radius: 10px;
-  margin: 5px;
-  padding: 10px;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.8rem;
 }
