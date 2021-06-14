@@ -50,6 +50,19 @@ const Products = (props) => {
           </div>
           {products.map(product => {
             return (
+
+//               <div className="body-products" key={product.id}>
+//                 <img src={img} alt=""></img>
+//                 <div className="product-title">{product.title}</div>
+//                 <div className="product-category">{product.category}</div>
+//                 <div className="product-writer-container">
+//                   <span className="product-writer">{product.writerid}</span>
+//                   <span className="product-users-watch">
+//                     {/* 하트 이모지*/}32
+//                   </span>
+//                 </div>
+//               </div>
+
               <>
                 <Link
                   to={{

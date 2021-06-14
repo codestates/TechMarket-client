@@ -1,15 +1,9 @@
 import React from "react";
-// import axios from "axios";
+import profile from "../images/profileImg.png";
 import badge from "../images/1st_badge.png";
 
 
-const MyPageInfo = ({ onClickLogout }) => {
-  // await axios.get(
-  //     `http://locslhot:8080/user/info`
-  // )
-  // .then(res => {
-  //     console.log(res);
-  // })
+const MyPageInfo = ({ userInfo, onClickLogout }) => {
   return (
     <>
       <section className="profile-section">
@@ -24,15 +18,15 @@ const MyPageInfo = ({ onClickLogout }) => {
           </div>
           <div className="profile-group">
             <span>이메일 </span>
-            <span>abc@naver.com</span>
+            <span>{userInfo.email}</span>
           </div>
           <div className="profile-group">
             <span>닉네임 </span>
-            <span>kim123</span>
+            <span>{userInfo.username}</span>
           </div>
           <div className="profile-group">
             <span>비밀번호 </span>
-            <span>1234</span>
+            <span>{userInfo.password}</span>
           </div>
           <button className="btn-modify" type="submit" onClick={onClickLogout}>
             로그아웃

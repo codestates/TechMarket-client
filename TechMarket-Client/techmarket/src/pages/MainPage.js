@@ -10,11 +10,11 @@ import badge1 from "../images/1st_badge.png";
 import badge2 from "../images/2nd_badge.png";
 import badge3 from "../images/3rd_badge.png";
 
-const MainPage = ({ accessToken, issueAccessToken }) => {
+const MainPage = () => {
   return (
     <>
       <div id="container-mainpage">
-        <Nav accessToken={accessToken} issueAccessToken={issueAccessToken} />
+        <Nav/>
         <div id="section1">
           <div className="container1">
             <span className="company-title">TechMarket</span>
@@ -81,5 +81,4 @@ const MainPage = ({ accessToken, issueAccessToken }) => {
     </>
   );
 };
-//export default withRouter(MainPage)
 export default MainPage;

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import { withRouter } from "react-router-dom";
 import axios from "axios";
 import "../styles/LoginModal.css";
 require("dotenv").config({ path: __dirname + "/.env" });
-//var environment = process.env.NODE_ENV || 'development';
 
 const Login = ({ issueAccessToken, onClickLogin }) => {
   const [email, setEmail] = useState("");
@@ -35,7 +33,8 @@ const Login = ({ issueAccessToken, onClickLogin }) => {
             if (res.status === 200) {
               alert("로그인에 성공했습니다.");
               handleClickClose();
-              issueAccessToken(res); // 나중에는 토큰만 보내기
+              localStorage.setItem('tech_auth', res.data.result.access_token); //받은 토큰 localStorage에 저장
+              window.location.reload(); //화면 재렌더링
             }
           });
       } else {
