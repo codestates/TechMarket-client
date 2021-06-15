@@ -19,7 +19,11 @@ const MyPage = ({onClickLogout }) => {
       }
   )
   .then(res => {
+    console.log(res);
       setUserInfo(res.data);
+  })
+  .catch(err => {
+    console.log(err);
   })
 
   const handleClickProfileButton = () => {

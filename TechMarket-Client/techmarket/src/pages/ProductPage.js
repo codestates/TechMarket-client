@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
-import img from "../images/Earl of Lemongrab.jpeg";
 import "../styles/ProductPage.css";
 import axios from "axios";
+let imageIndex = 0;
+let imageUrl = "";
 
 const Product = (props) => {
   const [product, setProduct] = useState([]);
@@ -10,7 +11,7 @@ const Product = (props) => {
   const [chats, setChats] = useState([]);
   const [img, setImg] = useState([]);
 
-  axios //모든 댓글 가져오기
+  axios // 해당 게시물의 모든 댓글 가져오기
   .get(`http://localhost:8080/comment?boardid=${props.location.state.id}`)
   .then(res => {
     if(res.status === 200) {
@@ -18,7 +19,7 @@ const Product = (props) => {
     }
   })
 
-  useEffect(() => { //모든 게시물 가져오기
+  useEffect(() => { // 해당 게시물 정보 가져오기
     axios
     .get(`http://localhost:8080/board?id=${props.location.state.id}`)
     .then(res => {
@@ -41,18 +42,17 @@ const Product = (props) => {
     setChat(e.target.value);
   }
 
-  const clickChatButton = async () => { //댓글 작성하기 => 아이디, 작성시 비밀번호, 내용, 게시물 아이디
+  const clickChatButton = async () => {
     await axios.post(
       `http://localhost:8080/comment/create`,{
         username: localStorage.getItem("username"),
-        password: "1234",
         content: chat,
         boardid: props.location.state.id
       }
     )
     .then(res => {
       if(res.status === 200) {
-        setProduct([...chats, res.data]);
+        //setProduct([...chats, res.data]);
         alert("댓글 작성이 완료되었습니다.");
       }
     })
@@ -62,9 +62,6 @@ const Product = (props) => {
   }
 
   const clickDeleteButton = async (chatid) => {
-    console.log("delete");
-    console.log(chats);
-    //댓글의 아이디 보내기
     await axios.post(
       `http://localhost:8080/comment/delete`, {
         id: chatid,
@@ -73,12 +70,40 @@ const Product = (props) => {
     .then(res => {
       if(res.status === 200) {
         alert("댓글 삭제가 정상적으로 완료되었습니다.");
-
       }
     })
     .catch(err => {
       console.log(err);
     })
+  }
+
+  const clickDealButton = async () => {
+    console.log("거래완료");
+    var result = window.confirm("거래가 어땠는지 판단해주세요");
+    if(result) {
+      await axios.post(
+        `http://localhost:8080/user/deal`, {
+          writerid: product.writerid,
+        }
+      )
+      .then(
+        alert("평가가 완료되었습니다.")
+      )
+    } else {
+      alert("평가가 완료되었습니다.");
+    }
+  }
+
+  const changeImage = () => {
+    imageIndex++;
+
+    if(imageIndex < 0) {
+      imageIndex = img.length-1;
+    }
+    else if(imageIndex >= img.length) {
+      imageIndex = 0;
+    }
+    imageUrl = `http://localhost:8080/${img[imageIndex]}`;
   }
   
   return (
@@ -88,13 +113,10 @@ const Product = (props) => {
         <div className="product-intro">
           <div className="product-photo-content-box">
             <div className="product-photo">
-            {
-              img.map(el => {
-                return (
-                  <img src={`http://localhost:8080/${el}`}></img>
-                )
-              })
-            }
+                  <button onClick={changeImage()}>x</button>
+                  <img src={imageUrl}></img>
+                  <button onClick={changeImage()}>x</button>
+
             </div>
             <div className="product-seller-info">
               <div className="product-seller-name">{product.writerid}</div>
@@ -103,6 +125,7 @@ const Product = (props) => {
           </div>
 
           <div className="product-modal-chats-container">
+            
             <div className="product-chat-box">
               <input
                 type="text"
@@ -110,26 +133,31 @@ const Product = (props) => {
                 onChange={e => inputChatHandler(e)}
               />
               <button className="product-chat-btn" onClick={clickChatButton}>클릭</button>
+              <button className="product-list-btn" onClick={() => {window.location = "/products"}}>게시물 목록으로</button>
+              <button className="product-list-btn" onClick={clickDealButton}>거래완료</button>
+
             </div>
             {
               chats.map(chat => {
                 return (
-                  <div className="product-modal-chat-users" key={chat.id}>
-                  <div className="product-modal-chat">
-                    <div className="product-modal-chatter-info">
-                      <span className="product-modal-chatter-name">{chat.username}</span>
-                      <span className="product-modal-chatter-date">{chat.createdAt}</span>
-                    </div>
-                    <div className="product-modal-chatter-chat">
-                      {chat.content}
-                      {
-                        localStorage.getItem("username") === chat.username ? 
-                        <button className="product-modal-chatter-delete" onClick={() => clickDeleteButton(chat.id)}>삭제</button>
-                        : <></>
-                      }
+                  <>
+                    <span className="product-modal-chat-users" key={chat.id}>
+                      
+                    <div className="product-modal-chat">
+                      <div className="product-modal-chatter-info">
+                        <span className="product-modal-chatter-name">{chat.username}</span>
                       </div>
-                    </div>
-                  </div>
+                        <div className="product-modal-chatter-chat">
+                          {chat.content}
+                        </div>
+                        {
+                          localStorage.getItem("username") === chat.username ? 
+                          <button className="product-modal-chatter-delete" onClick={() => clickDeleteButton(chat.id)}>삭제</button>
+                          : <button></button>
+                        }
+                      </div>
+                    </span>
+                  </>
                 )
               })
             }
@@ -137,7 +165,7 @@ const Product = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </> 
   );
 };
 

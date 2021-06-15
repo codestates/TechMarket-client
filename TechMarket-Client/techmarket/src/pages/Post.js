@@ -1,12 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-
 import Nav from "../components/Nav";
-
 import "../styles/Post.css";
 
-const Post = ({name}) => {
-  console.log(name);
+const Post = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [category, setCategory] = useState("notebook");
@@ -36,7 +33,7 @@ const Post = ({name}) => {
         formData.append("title", title);
         formData.append("content", summary);
         formData.append("registday", getCurrentDate());
-        
+
         await axios.post (
           `http://localhost:8080/mypage/upload`,
           formData,
@@ -51,7 +48,7 @@ const Post = ({name}) => {
           .then(res => {
             if(res.status === 200) {
               alert("게시물 작성이 완료되었습니다.");
-               // 게시물 목록 화면으로 이동하기
+              window.location = "/products"               
             }
           })
       } else {

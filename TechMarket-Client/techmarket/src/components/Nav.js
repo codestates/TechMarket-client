@@ -12,7 +12,6 @@ const Nav = () => {
 
   const inputHandler = e => {
     setSearch(e.target.value);
-    console.log(search);
   };
 
   const onClickLogin = () => {
