@@ -13,12 +13,16 @@
   font-weight: 700;
   padding: 7px;
   margin: 10px;
+  margin-left: 280px;
+  width: 150px;
 }
 
 .page-show-container {
   background-color: rgb(142, 142, 195);
   display: flex;
   display: block;
+  margin-left: 230px;
+  width: 280px;
 }
 
 .page-show-header {

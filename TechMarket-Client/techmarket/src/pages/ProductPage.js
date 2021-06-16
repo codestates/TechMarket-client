@@ -31,6 +31,8 @@ const Product = (props) => {
   }
 
   const clickChatButton = async () => {
+
+    console.log("a");
     await axios.post(
       `http://localhost:8080/comment/create`,{
         username: localStorage.getItem("username"),
@@ -128,7 +130,7 @@ const Product = (props) => {
               }
 
             </div>
-            {
+            { product.comments !== undefined ? 
               product.comments.map(chat => {
                 return (
                   <>
@@ -149,8 +151,8 @@ const Product = (props) => {
                       </div>
                     </span>
                   </>
-                )
-              })
+                ) 
+              }): <div>댓글없어요</div>
             }
 
           </div>

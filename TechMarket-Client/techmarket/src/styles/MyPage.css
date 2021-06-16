@@ -27,6 +27,10 @@ html {
   padding: 7px;
   color: #725fd8;
   font-weight: 500;
+  margin-left: 240px;
+  margin-top: 15px;
+  width: 260px;
+
 }
 
 .profile-title > span {
@@ -44,15 +48,17 @@ html {
   background: #ece9ff;
   color: #725fd8;
   transition: 0.2s;
-}
+  }
 
 .profile-info {
   border: 0.5px solid #725fd8;
   border-radius: 5px;
   padding: 7px;
-  height: 230px;
+  height: 270px;
   width: 250px;
   padding-left: 7px;
+  margin-left: 240px;
+  
 }
 
 .profile-info > span {
@@ -113,7 +119,7 @@ input {
 }
 
 .btn-modify-profile {
-  margin-top: 43px;
+  margin-top: 23px;
 }
 
 img {
