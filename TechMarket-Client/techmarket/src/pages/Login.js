@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/LoginModal.css";
-import GoogleButton from "../components/GoogleButton";
 
 require("dotenv").config({ path: __dirname + "/.env" });
 const Login = props => {

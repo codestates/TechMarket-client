@@ -1,9 +1,8 @@
 import React, { useState} from "react";
+import { Link } from "react-router-dom";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import MyPage from "../pages/MyPage";
 import "../styles/Nav.css";
-import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [clickLogin, setClickLogin] = useState(false);

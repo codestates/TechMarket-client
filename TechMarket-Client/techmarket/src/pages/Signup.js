@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/SignupModal.css";
 
@@ -55,6 +54,7 @@ const Signup = props => {
   const handleClickClose = () => {
     props.onClickSignup(false);
   };
+
   return (
     <>
       <center>
@@ -94,7 +94,6 @@ const Signup = props => {
                       placeholder="비밀번호"
                     ></input>
                   </div>
-
                   <button
                     className="btn-signup"
                     type="submit"

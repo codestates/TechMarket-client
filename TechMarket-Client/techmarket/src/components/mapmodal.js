@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "../styles/mapmodal.css";
 import Kakaomap from "../pages/Kakaomap";
+import "../styles/mapmodal.css";
 
 const Modal = ( props ) => {
     const [Place, setPlace] = useState('')
     const [InputText, setInputText] = useState('')
-
 
     const handleSubmit = (e) => {
         e.preventDefault()

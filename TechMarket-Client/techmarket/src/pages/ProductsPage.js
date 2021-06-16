@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Nav from "../components/Nav";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import "../styles/ProductsPage.css";
+import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 import loading from "../images/loading.gif";
 import like from "../images/like.png"
+import "../styles/ProductsPage.css";
 
 const Products = props => {
   const [products, setProducts] = useState([]);

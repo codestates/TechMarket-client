@@ -20,10 +20,7 @@ const Post = () => {
   const handleUploadPost = async () => {
     try {
       if (title !== "" && summary !== "") {
-        console.log("버튼 누름");
-
         const formData = new FormData();
-        //formData.append("photos", selectedFile);
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append("photos", selectedFile[i]);
         }
@@ -47,7 +44,6 @@ const Post = () => {
         alert("모든 항목은 필수입니다.");      
       }
     } catch (err) {
-      console.log(err);
       alert("예상치 못한 에러가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
     }
   };
@@ -57,7 +53,7 @@ const Post = () => {
   };
 
   const selectFile = e => {
-    setSelectedFile([...selectedFile, e.target.files[0]]); //[...selectedFile, e.target.files[0]]
+    setSelectedFile([...selectedFile, e.target.files[0]]);
     console.log(e.target.files);
   };
 
