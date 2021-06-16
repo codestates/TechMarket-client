@@ -21,7 +21,7 @@ const Login = (props) => {
       if (email !== "" && password !== "") {
         await axios
           .post(
-            `https://techstates2.shop/user/login`,
+            `http://localhost:8080/user/login`,
             {
               email: email.email,
               password: password.password
