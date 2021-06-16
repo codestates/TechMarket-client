@@ -11,13 +11,6 @@ const Product = (props) => {
   const [chats, setChats] = useState([]);
   const [img, setImg] = useState([]);
 
-  axios // 해당 게시물의 모든 댓글 가져오기
-  .get(`http://localhost:8080/comment?boardid=${props.location.state.id}`)
-  .then(res => {
-    if(res.status === 200) {
-      setChats(res.data);
-    }
-  })
 
    // 해당 게시물 정보 가져오기
     axios
@@ -33,7 +26,6 @@ const Product = (props) => {
     .catch(err => {
       console.log(err);
     })
-    
   const inputChatHandler = (e) => {
     setChat(e.target.value);
   }
@@ -137,7 +129,7 @@ const Product = (props) => {
 
             </div>
             {
-              chats.map(chat => {
+              product.comments.map(chat => {
                 return (
                   <>
                     <span className="product-modal-chat-users" key={chat.id}>
