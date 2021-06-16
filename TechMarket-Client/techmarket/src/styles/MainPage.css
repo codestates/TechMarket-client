@@ -30,7 +30,7 @@ body {
   padding-right: 3rem;
   background-color: rgb(197, 222, 236);
   background-image: url("../images/mainpage_container1_background.png");
-  background-repeat: repeat-y;
+ /*  background-repeat: repeat-y; */
 }
 
 #section1 .container1 {

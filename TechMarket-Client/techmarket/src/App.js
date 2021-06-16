@@ -12,24 +12,11 @@ import ProductsPage from "./pages/ProductsPage";
 import Post from "./pages/Post";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userInfo: {},
-    };
-    this.onClickLogout = this.onClickLogout.bind(this);
-    this.setUserInfo = this.setUserInfo.bind(this);
-  }
-
-  setUserInfo = (info) => {
-    this.setState({
-      ...info
-    })
-  }
 
   onClickLogout = () => {
     alert("로그아웃 하시겠습니까?");
     localStorage.removeItem('tech_auth'); //localstorage에 저장된 토큰 삭제
+    localStorage.removeItem('username'); //localstorage에 저장된 사용자 계정 삭제
     window.location = "/"; // 메인 화면으로 이동
   }
 
@@ -41,7 +28,7 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <MainPage/>
+              <MainPage setUserInfo={this.setUserInfo}/>
             )}
           />
           <Switch>
@@ -55,7 +42,7 @@ class App extends Component {
               )}
             />
             <Route path="/products" component={ProductsPage} />
-            <Route path="/post" component={Post} />
+            <Route path="/post" component={Post}/>
           </Switch>
         </div>
       </Router>

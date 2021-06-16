@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-
 import Nav from "../components/Nav";
-
 import "../styles/Post.css";
 
 const Post = () => {
@@ -30,36 +28,34 @@ const Post = () => {
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append("photos", selectedFile[i]);
         }
-        formData.append("writerid", "jiwon");
+
+        formData.append('writerid', localStorage.getItem('username'));
+
         formData.append("category", category);
         formData.append("title", title);
         formData.append("content", summary);
         formData.append("registday", getCurrentDate());
 
-        for (var pair of formData.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
-        }
+        await axios.post (
+          `http://localhost:8080/mypage/upload`,
+          formData,
+          // {
+          //   headers: {
+          //     'content-type':
+          //         'multipart/form-data',
+          // },
+          // withCredentials: true,
+          // }
 
-        await axios
-          .post(
-            `http://localhost:8080/mypage/upload`,
-            formData
-            // {
-            //   headers: {
-            //     'content-type':
-            //         'multipart/form-data',
-            // },
-            // withCredentials: true,
-            // }
           )
           .then(res => {
             if (res.status === 200) {
               alert("게시물 작성이 완료되었습니다.");
+              window.location = "/products"               
             }
           });
       } else {
-        alert("모든 항목은 필수입니다.");
-        // 게시물 목록 화면으로 이동하기
+        alert("모든 항목은 필수입니다.");      
       }
     } catch (err) {
       console.log(err);

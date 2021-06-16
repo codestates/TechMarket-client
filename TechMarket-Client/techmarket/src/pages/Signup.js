@@ -25,7 +25,7 @@ const Signup = props => {
       if (email !== "" && password !== "" && username !== "") {
         await axios
           .post(
-            `http://localhost:8080/user/signup`,
+            `https://techstates2.shop/user/signup`,
             {
               email: email.email,
               username: username.username,
