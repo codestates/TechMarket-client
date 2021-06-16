@@ -14,7 +14,7 @@ body {
 
 .product-intro {
   display: flex;
-  display: block;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   margin: 5px;
