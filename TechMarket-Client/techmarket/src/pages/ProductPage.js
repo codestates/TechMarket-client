@@ -19,7 +19,7 @@ const Product = (props) => {
     }
   })
 
-  useEffect(() => { // 해당 게시물 정보 가져오기
+   // 해당 게시물 정보 가져오기
     axios
     .get(`http://localhost:8080/board?id=${props.location.state.id}`)
     .then(res => {
@@ -33,11 +33,7 @@ const Product = (props) => {
     .catch(err => {
       console.log(err);
     })
-    return () => {
-      console.log("");
-    }
-  },[]);
-
+    
   const inputChatHandler = (e) => {
     setChat(e.target.value);
   }
@@ -78,7 +74,6 @@ const Product = (props) => {
   }
 
   const clickDealButton = async () => {
-    console.log("거래완료");
     var result = window.confirm("거래가 어땠는지 판단해주세요");
     if(result) {
       await axios.post(
@@ -95,15 +90,15 @@ const Product = (props) => {
   }
 
   const changeImage = () => {
-    imageIndex++;
+      imageIndex++;
 
-    if(imageIndex < 0) {
-      imageIndex = img.length-1;
-    }
-    else if(imageIndex >= img.length) {
-      imageIndex = 0;
-    }
-    imageUrl = `http://localhost:8080/${img[imageIndex]}`;
+      if(imageIndex < 0) {
+        imageIndex = img.length-1;
+      }
+      else if(imageIndex >= img.length) {
+        imageIndex = 0;
+      }
+      imageUrl = `http://localhost:8080/${img[imageIndex]}`;
   }
   
   return (
@@ -119,7 +114,7 @@ const Product = (props) => {
 
             </div>
             <div className="product-seller-info">
-              <div className="product-seller-name">{product.writerid}</div>
+              <div className="product-seller-title">{product.title}</div>
               <div className="product-seller-comment">{product.content}</div>
             </div>
           </div>
@@ -134,7 +129,11 @@ const Product = (props) => {
               />
               <button className="product-chat-btn" onClick={clickChatButton}>클릭</button>
               <button className="product-list-btn" onClick={() => {window.location = "/products"}}>게시물 목록으로</button>
-              <button className="product-list-btn" onClick={clickDealButton}>거래완료</button>
+              {
+                localStorage.getItem("username") !== product.writerid ?
+                <button className="product-list-btn" onClick={clickDealButton}>거래완료</button> :
+                <></>
+              }
 
             </div>
             {

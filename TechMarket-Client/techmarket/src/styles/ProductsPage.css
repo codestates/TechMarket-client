@@ -23,11 +23,11 @@ body {
 
 #section-search-products .products-search-mention {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 3px;
   color: black;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 #section-search-products .products-search-introduction {
@@ -67,11 +67,21 @@ body {
 
 .body-products {
   display: inline-block;
-  margin: 2rem;
+  margin: 4rem;
   padding: 2rem;
-  border: 1px solid;
+  border: 1px solid rgb(195, 194, 194);
   border-radius: 5px;
   width: 10rem;
+  background-color: rgb(253, 249, 243);
+}
+
+.product-image {
+  width: 160px;
+  height: 190px;
+}
+
+.products-link {
+  color: rgb(88, 118, 133);
 }
 
 .product-photo {
@@ -85,7 +95,14 @@ body {
 }
 
 .product-photo img {
-  width: 100%;
+  width: 80%;
+}
+
+.product-photo button {
+  color: black;
+  width: 130px;
+  height: 30px;
+  font-size: 0px;
 }
 
 .product-info {
@@ -94,14 +111,20 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-/* .product-title {
-  font-weight: 400;
-  font-size: 45px;
+.product-title {
+  font-weight: 550;
+  font-size: 20px;
   line-height: 18px;
-  white-space: nowrap;
+  padding: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
-} */
+}
+
+.like {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+}
 
 .product-info .product-region {
   font-size: 12px;
@@ -135,15 +158,20 @@ body {
   letter-spacing: 2px;
 }
 
-/* .product-info .product-price-container .product-users-likes { */
-
 .body-products-outer-container .body-products .product-writer {
   font-size: 0.5rem;
   letter-spacing: 1px;
 }
 
-.body-products-outer-container .body-products .product-users-watch {
-  float: right;
+.product-users-watch {
+  margin-left: 65px;
+}
+
+.loadingImage {
+  margin-top: 250px;
+  width: 300px;
+  height: 300px;
+
 }
 /* .product-info .product-price-container .product-users-watch {
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/LoginModal.css";
+import GoogleButton from "../components/GoogleButton"
+
 require("dotenv").config({ path: __dirname + "/.env" });
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -19,7 +21,7 @@ const Login = (props) => {
       if (email !== "" && password !== "") {
         await axios
           .post(
-            "http://localhost:8080/user/login",
+            `https://techstates2.shop/user/login`,
             {
               email: email.email,
               password: password.password
@@ -33,10 +35,11 @@ const Login = (props) => {
               alert("로그인에 성공했습니다.");
               handleClickClose();
               localStorage.setItem("tech_auth", res.data.result.access_token); //받은 토큰 localStorage에 저장
+              //localStorage.setItem("tech_auth2", res.data.result.refresh_token);
               localStorage.setItem("username", res.data.response.username); // 로그인한 유저 localStorage에 저장
               window.location.reload(); //화면 재렌더링
-              
             }
+
           });
       } else {
         alert("모든 항목은 필수입니다.");
@@ -48,6 +51,9 @@ const Login = (props) => {
   const handleClickClose = () => {
     props.onClickLogin(false);
   };
+
+
+
   return (
     <>
       <center>

@@ -31,6 +31,7 @@ body {
   margin: 25px 35px;
   width: 450px;
   height: 270px;
+  border: 1px solid;
 }
 
 .product-modal-photo img {
@@ -39,7 +40,8 @@ body {
 }
 
 .product-seller-info {
-  background-color: #ded7f7;
+  /* background-color: #ded7f7; */
+  background-color: #f4f1ff;
   display: flex;
   justify-content: flex-start;
   margin: 10px 25px;
@@ -51,15 +53,17 @@ body {
   overflow: hidden;
 }
 
-.product-seller-name {
-  margin: 5px 10px;
-  font-size: 15px;
+.product-seller-title {
   font-weight: 700;
+  font-size: 20px;
 }
 
 .product-seller-comment {
   font-size: 15px;
   font-weight: 500;
+  text-align: left;
+  padding: 20px;
+
 }
 
 .product-modal-chats-container {

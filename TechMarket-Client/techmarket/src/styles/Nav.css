@@ -1,7 +1,7 @@
 #nav {
   position: fixed;
   top: 0;
-  height: 3.2rem;
+  height: 4rem;
   width: 100%;
   padding-left: 0.5rem;
   padding-right: 2rem;
@@ -13,7 +13,7 @@
 }
 
 #nav .title {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   color: white;
   letter-spacing: 0.1rem;
   font-weight: 50;
@@ -27,13 +27,14 @@
 
 .product-search {
   width: 14rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
   margin: 0.5rem 0.1rem;
 }
 
 #nav button {
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.4rem;
   margin: 0.5rem;
 }
 
