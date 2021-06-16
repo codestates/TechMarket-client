@@ -19,8 +19,6 @@ const Product = (props) => {
   const [Place, setPlace] = useState('')
   const [ modalOpen, setModalOpen ] = useState(false);
 
-
-
    // 해당 게시물 정보 가져오기
     axios
     .get(`http://localhost:8080/board?id=${props.location.state.id}`)
@@ -91,12 +89,10 @@ const Product = (props) => {
   }
 
   const changeImage = () => {
+    console.log("a");
       imageIndex++;
 
-      if(imageIndex < 0) {
-        imageIndex = img.length-1;
-      }
-      else if(imageIndex >= img.length) {
+      if(imageIndex > img.length) {
         imageIndex = 0;
       }
       imageUrl = `http://localhost:8080/${img[imageIndex]}`;

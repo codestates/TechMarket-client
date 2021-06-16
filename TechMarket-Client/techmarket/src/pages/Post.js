@@ -23,12 +23,10 @@ const Post = () => {
         console.log("버튼 누름");
 
         const formData = new FormData();
-        console.log(selectedFile.name);
-        formData.append("photos", selectedFile);
+        //formData.append("photos", selectedFile);
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append("photos", selectedFile[i]);
         }
-
         formData.append('writerid', localStorage.getItem('username'));
         formData.append("category", category);
         formData.append("title", title);
@@ -40,7 +38,7 @@ const Post = () => {
           formData,
           )
           .then(res => {
-            if (res.status === 200) {
+            if (res.status === 201) {
               alert("게시물 작성이 완료되었습니다.");
               window.location = "/products"               
             }
