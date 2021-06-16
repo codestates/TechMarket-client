@@ -30,7 +30,6 @@ const Post = () => {
         }
 
         formData.append('writerid', localStorage.getItem('username'));
-
         formData.append("category", category);
         formData.append("title", title);
         formData.append("content", summary);
@@ -39,14 +38,6 @@ const Post = () => {
         await axios.post (
           `http://localhost:8080/mypage/upload`,
           formData,
-          // {
-          //   headers: {
-          //     'content-type':
-          //         'multipart/form-data',
-          // },
-          // withCredentials: true,
-          // }
-
           )
           .then(res => {
             if (res.status === 200) {

@@ -2,14 +2,23 @@ import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import "../styles/ProductPage.css";
 import axios from "axios";
+import Modal from "../components/mapmodal";
 let imageIndex = 0;
 let imageUrl = "";
+
+const styleSecond = {
+  float: "left", // float 적용
+};
 
 const Product = (props) => {
   const [product, setProduct] = useState([]);
   const [chat, setChat] = useState("");
   const [chats, setChats] = useState([]);
   const [img, setImg] = useState([]);
+  const [InputText, setInputText] = useState('')
+  const [Place, setPlace] = useState('')
+  const [ modalOpen, setModalOpen ] = useState(false);
+
 
 
    // 해당 게시물 정보 가져오기
@@ -31,8 +40,6 @@ const Product = (props) => {
   }
 
   const clickChatButton = async () => {
-
-    console.log("a");
     await axios.post(
       `http://localhost:8080/comment/create`,{
         username: localStorage.getItem("username"),
@@ -94,6 +101,21 @@ const Product = (props) => {
       }
       imageUrl = `http://localhost:8080/${img[imageIndex]}`;
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setPlace(InputText)
+    setInputText('')
+  }
+  const onChange = (e) => {
+    setInputText(e.target.value)
+  }
+  const openModal = () => {
+    setModalOpen(true);
+}
+const closeModal = () => {
+    setModalOpen(false);
+}
   
   return (
     <>
@@ -111,6 +133,12 @@ const Product = (props) => {
               <div className="product-seller-title">{product.title}</div>
               <div className="product-seller-comment">{product.content}</div>
             </div>
+            <React.Fragment>
+            <button className="product-map" onClick={ openModal }>지도로 위치 찾기</button>
+            <Modal open={ modalOpen } close={ closeModal } header="지도로 직거래 장소 찾아보기">
+            
+            </Modal>
+            </React.Fragment>
           </div>
 
           <div className="product-modal-chats-container">

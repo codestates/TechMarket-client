@@ -8,7 +8,7 @@ const MyPageShow = ({ userInfo }) => {
   const [posts, setPosts] = useState([]);
   console.log(userInfo);
   axios
-    .get(`http://localhost:8080/email?email=vkhkhv@naver.com`) //나중에는 유저의 이메일로 바꾸기
+    .get(`http://localhost:8080/email?email=${userInfo.email}`) //나중에는 유저의 이메일로 바꾸기
     .then(res => {
       if(res.status === 200) {
         setPosts(res.data.data.result);
