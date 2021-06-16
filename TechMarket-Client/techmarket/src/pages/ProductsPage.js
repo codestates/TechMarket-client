@@ -11,22 +11,22 @@ const Products = props => {
   const incrementItem = () => setItem(item + 1);
   const [products, setProducts] = useState([]);
 
-  if (props.location.history) {
+  // if (props.location.history) {
+  //   //검색어를 입력하고 들어왔으면
+  //   const word = props.location.state.search;
+  //   axios
+  //     .get(`http://localhost:8080/search?search_word=${word}`, {})
+  //     .then(res => {
+  //       console.log(res.data.data.result);
+  //       if (res.status === 200) {
+  if (props.location.state) {
     //검색어를 입력하고 들어왔으면
     const word = props.location.state.search;
     axios
       .get(`http://localhost:8080/search?search_word=${word}`, {})
       .then(res => {
-        console.log(res.data.data.result);
         if (res.status === 200) {
-          // if (props.location.state) { //검색어를 입력하고 들어왔으면
-          //   const word = props.location.state.search;
-          //   axios
-          //     .get(`http://localhost:8080/search?search_word=${word}`,{
-          //     })
-          //     .then(res => {
-          //       if (res.status === 200) {
-          //console.log(res.data.data.result[0].thumbnail); //사진
+          console.log(res.data.data.result[0].thumbnail); //사진
           console.log(res);
           setProducts(res.data.data.result);
         } else {

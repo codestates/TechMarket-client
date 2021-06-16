@@ -17,12 +17,15 @@ const MyPageInfo = ({ userInfo, onClickLogout }) => {
         <div className="profile-info">
           <span>기본정보</span>
           <div className="profile-group">
-            {
-              deal_count < 10? <img src={badge3} alt=""/> : (deal_count < 20 ? <img src={badge2} alt=""/> : <img src={badge1} alt=""/>)
-            }
-
+            {deal_count < 10 ? (
+              <img src={badge3} alt="" />
+            ) : deal_count < 20 ? (
+              <img src={badge2} alt="" />
+            ) : (
+              <img src={badge1} alt="" />
+            )}
           </div>
-          <div className="profile-group">
+          <div className="profile-group ">
             <span>이메일 </span>
             <span>{userInfo.email}</span>
           </div>
