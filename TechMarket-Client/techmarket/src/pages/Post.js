@@ -19,16 +19,18 @@ const Post = () => {
 
   const handleUploadPost = async () => {
     try {
-      if(title !== "" && summary !== "") {
+      if (title !== "" && summary !== "") {
         console.log("버튼 누름");
 
         const formData = new FormData();
         console.log(selectedFile.name);
-        formData.append('photos',selectedFile);
+        formData.append("photos", selectedFile);
         for (let i = 0; i < selectedFile.length; i++) {
-          formData.append('photos', selectedFile[i]);
+          formData.append("photos", selectedFile[i]);
         }
+
         formData.append('writerid', localStorage.getItem('username'));
+
         formData.append("category", category);
         formData.append("title", title);
         formData.append("content", summary);
@@ -44,53 +46,53 @@ const Post = () => {
           // },
           // withCredentials: true,
           // }
+
           )
           .then(res => {
-            if(res.status === 200) {
+            if (res.status === 200) {
               alert("게시물 작성이 완료되었습니다.");
               window.location = "/products"               
             }
-          })
+          });
       } else {
         alert("모든 항목은 필수입니다.");      
       }
-    } catch(err) {
-      console.log(err)
+    } catch (err) {
+      console.log(err);
       alert("예상치 못한 에러가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
     }
-  }
+  };
 
-  const handleCategory = (event) => {
+  const handleCategory = event => {
     setCategory(event.target.value);
-  }
+  };
 
-  const selectFile = (e) => {
+  const selectFile = e => {
     setSelectedFile([...selectedFile, e.target.files[0]]); //[...selectedFile, e.target.files[0]]
     console.log(e.target.files);
-  }
+  };
 
   const getCurrentDate = () => {
     var date = new Date();
     var year = date.getFullYear().toString();
 
     var month = date.getMonth() + 1;
-    month = month < 10 ? '0' + month.toString() : month.toString();
+    month = month < 10 ? "0" + month.toString() : month.toString();
 
     var day = date.getDate();
-    day = day < 10 ? '0' + day.toString() : day.toString();
+    day = day < 10 ? "0" + day.toString() : day.toString();
 
     var hour = date.getHours();
-    hour = hour < 10 ? '0' + hour.toString() : hour.toString();
+    hour = hour < 10 ? "0" + hour.toString() : hour.toString();
 
     var minute = date.getMinutes();
-    minute = minute < 10 ? '0' + minute.toString() : minute.toString();
+    minute = minute < 10 ? "0" + minute.toString() : minute.toString();
 
     var seconds = date.getSeconds();
-    seconds = seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+    seconds = seconds < 10 ? "0" + seconds.toString() : seconds.toString();
 
     return `${year}-${month}-${day} ${hour}:${minute}:${seconds}`;
-  }
- 
+  };
 
   return (
     <>
@@ -108,10 +110,13 @@ const Post = () => {
               <option value="notebook">notebook</option>
               <option value="iPad">iPad</option>
               <option value="mobile phone">mobile phone</option>
-              <option value ="AirPods">AirPods</option>
-              <option value ="PC">PC</option>
+              <option value="AirPods">AirPods</option>
+              <option value="PC">PC</option>
               <option value="Etc">Etc</option>
             </select>
+          </div>
+          <div className="product-post-file">
+            <input type="file" name="myFile" onChange={selectFile}></input>
           </div>
           <div className="product-post-summary">
             <input
@@ -120,12 +125,12 @@ const Post = () => {
               onChange={e => {
                 inputSummaryHandler(e);
               }}
-            >
-            </input>
-            <input type="file" name="myFile" onChange={selectFile}></input>
+            ></input>
           </div>
           <div className="product-post-btn-container">
-            <button className="product-post-btn" onClick={handleUploadPost}>글쓰기</button>
+            <button className="product-post-btn" onClick={handleUploadPost}>
+              글쓰기
+            </button>
           </div>
         </div>
       </div>
