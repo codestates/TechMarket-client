@@ -7,7 +7,7 @@ import MyPageModify from "./MyPageModify";
 import axios from "axios";
 import MyPageShow from "./MyPageShow";
 
-const MyPage = ({onClickLogout }) => {
+const MyPage = ({ onClickLogout }) => {
   const [isProfile, setIsProfile] = useState(true); // 내 프로필 버튼을 눌렀는지, 내 정보 수정 버튼을 눌렀는지 확인하기 위해
   const [userInfo, setUserInfo] = useState({});
   const [showPage, setShowPage] = useState(false);
@@ -32,13 +32,14 @@ const MyPage = ({onClickLogout }) => {
       }
     })
     .catch(err => {
-      if(err.name === 'TokenExpiredError') {
-      console.log("a");
+      if (err.name === "TokenExpiredError") {
+        console.log("a");
       }
-    })
+    });
 
   const handleClickProfileButton = () => {
     setIsProfile(true);
+    setShowPage(true);
   };
 
   const handleClickModifyButton = () => {
@@ -47,6 +48,7 @@ const MyPage = ({onClickLogout }) => {
   };
 
   const handleClickShowButton = () => {
+    setIsProfile(false);
     setShowPage(false);
   };
 
