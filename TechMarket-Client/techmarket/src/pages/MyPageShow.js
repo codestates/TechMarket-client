@@ -49,13 +49,6 @@ const MyPageShow = ({ userInfo }) => {
           <div className="page-show-header">
             <span>제목</span>
           </div>
-          {/* <div className="page-show-group">
-            <div className="page-show-box">
-              <span className="page-show-title">제목</span>
-              <span className="pade-show-delete-box">
-                <button className="page-show-delete-btn">삭제</button>
-              </span>
-            </div> */}
           {posts.map(function(post) {
             return (
               <>

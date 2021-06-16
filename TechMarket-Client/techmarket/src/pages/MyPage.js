@@ -24,12 +24,10 @@ const MyPage = ({ onClickLogout }) => {
       }
     )
     .then(res => {
-      if (res.data.result) {
-        // 토큰이 만료되었다면
-        localStorage.setItem("tech_auth", res.data.result.access_token);
+      if(res.data.result) {// 토큰이 만료되었다면
+        localStorage.setItem("tech_auth", res.data.result.access_token); 
         setUserInfo(res.data);
-      } else {
-        // 만료되지 않았다면
+      } else { // 만료되지 않았다면
         setUserInfo(res.data);
       }
     })
