@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Nav from "../components/Nav";
@@ -9,10 +9,11 @@ import "../styles/MyPage.css";
 
 const MyPage = ({ onClickLogout }) => {
   const [isProfile, setIsProfile] = useState(true); //어떤 버튼을 눌렀는지 확인하기 위해
-  const [userInfo, setUserInfo] = useState({});
   const [showPage, setShowPage] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
 
-  axios
+  useEffect(() => {
+    axios
     .get(
       `http://localhost:8080/user/info`,
       {
@@ -33,6 +34,7 @@ const MyPage = ({ onClickLogout }) => {
     .catch(err => {
       console.log(err);
     });
+  },[isProfile])
 
   const handleClickProfileButton = () => {
     setIsProfile(true);
