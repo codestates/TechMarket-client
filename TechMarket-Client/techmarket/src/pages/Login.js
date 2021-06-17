@@ -82,14 +82,14 @@ const Login = props => {
                       placeholder="비밀번호"
                     ></input>
                   </div>
+                  <button
+                    className="btn-login"
+                    type="submit"
+                    onClick={handleLogin}
+                  >
+                    로그인
+                  </button>
                 </div>
-                <button
-                  className="btn-login"
-                  type="submit"
-                  onClick={handleLogin}
-                >
-                  로그인
-                </button>
               </div>
             </div>
           </div>
