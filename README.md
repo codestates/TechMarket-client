@@ -1,1 +1,1 @@
-![header](https://capsule-render.vercel.app/api?type=Waving&text=Techstates%20member&animation=twinkling&color=gradient&height=200)
+![header](https://capsule-render.vercel.app/api?type=Waving&text=TechMarket&animation=twinkling&color=gradient&height=200)
