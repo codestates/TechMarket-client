@@ -4,7 +4,7 @@ body {
   background-color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    /* font-family: 'Nanum Gothic', sans-serif; */
+  /* font-family: 'Nanum Gothic', sans-serif; */
 }
 
 #container-mainpage {
@@ -27,7 +27,7 @@ body {
   display: flex;
   justify-content: row;
   align-items: center;
-  padding-left: 28rem;
+  padding-left: 25rem;
   padding-right: 3rem;
   background-color: rgb(197, 222, 236);
   background-image: url("../images/mainpage_container1_background.png");
@@ -122,17 +122,18 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: row;
+  justify-content: flex-end;
   position: relative;
   z-index: 1;
   align-items: center;
   padding-top: 2rem;
-  padding: 2rem 2rem;
+  padding: 1rem 1rem;
 }
 
 #section3 .container1 {
   display: flex;
   flex-direction: column;
+  margin-right: 7rem;
 }
 
 #section3 .container1 .product-brand-title {
@@ -147,6 +148,10 @@ body {
 #section3 .container1 .product-brand-paragraph {
   margin-top: 5rem;
   padding: 5px;
+}
+
+#section3 > .container3 {
+  margin-right: 17rem;
 }
 
 #section3 .container3 > img {
