@@ -20,17 +20,11 @@ const Post = () => {
   const handleUploadPost = async () => {
     try {
       if (title !== "" && summary !== "") {
-        console.log("버튼 누름");
-
         const formData = new FormData();
-        console.log(selectedFile.name);
-        formData.append("photos", selectedFile);
         for (let i = 0; i < selectedFile.length; i++) {
           formData.append("photos", selectedFile[i]);
         }
-
         formData.append('writerid', localStorage.getItem('username'));
-
         formData.append("category", category);
         formData.append("title", title);
         formData.append("content", summary);
@@ -39,17 +33,9 @@ const Post = () => {
         await axios.post (
           `http://localhost:8080/mypage/upload`,
           formData,
-          // {
-          //   headers: {
-          //     'content-type':
-          //         'multipart/form-data',
-          // },
-          // withCredentials: true,
-          // }
-
           )
           .then(res => {
-            if (res.status === 200) {
+            if (res.status === 201) {
               alert("게시물 작성이 완료되었습니다.");
               window.location = "/products"               
             }
@@ -58,7 +44,6 @@ const Post = () => {
         alert("모든 항목은 필수입니다.");      
       }
     } catch (err) {
-      console.log(err);
       alert("예상치 못한 에러가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
     }
   };
@@ -68,7 +53,7 @@ const Post = () => {
   };
 
   const selectFile = e => {
-    setSelectedFile([...selectedFile, e.target.files[0]]); //[...selectedFile, e.target.files[0]]
+    setSelectedFile([...selectedFile, e.target.files[0]]);
     console.log(e.target.files);
   };
 

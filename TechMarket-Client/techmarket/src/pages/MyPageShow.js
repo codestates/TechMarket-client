@@ -1,30 +1,24 @@
 import React, { useState } from "react";
-
 import axios from "axios";
-
 import "../styles/MyPageShow.css";
 
 const MyPageShow = ({ userInfo }) => {
   const [posts, setPosts] = useState([]);
-  console.log(userInfo);
   axios
-    .get(`http://localhost:8080/email?email=vkhkhv@naver.com`) //나중에는 유저의 이메일로 바꾸기
+    .get(`http://localhost:8080/email?email=${userInfo.email}`)
     .then(res => {
       if(res.status === 200) {
         setPosts(res.data.data.result);
-        console.log(posts);
       }
     })
     .catch(err => {
-      console.log(err);
-      alert("예상치 못한 에러가 발생했습니다");
+      alert("예상치 못한 에러가 발생했습니다 \n 잠시 후 다시 시도해주세요");
     });
 
   const handleDelete = data => {
     axios
       .post("http://localhost:8080/mypage/deletecontent", {
         id: data.id,
-        //title: data.title
       })
       .then(res => {
         if (res.status === 200) {
@@ -32,14 +26,9 @@ const MyPageShow = ({ userInfo }) => {
         }
       })
       .catch(err => {
-        alert("예상치 못한 에러가 발생했습니다.");
+        alert("예상치 못한 에러가 발생했습니다. \n 잠시 후 다시 시도해주세요");
       });
   };
-
-  // const onRemove = data => {
-  //   let newPosts = posts.title.filter(ele => data !== ele);
-  //   setPosts(newPosts);
-  // };
 
   return (
     <>
@@ -73,6 +62,3 @@ const MyPageShow = ({ userInfo }) => {
 };
 
 export default MyPageShow;
-
-
-//onRemove={onRemove(post.title)}

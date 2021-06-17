@@ -1,14 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
-import "../styles/MainPage.css";
 import img from "../images/section2_img.png";
 import img2 from "../images/section3_img.png";
 import icon from "../images/mainpage_container1_icon.png";
-import { withRouter } from "react-router-dom";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import badge1 from "../images/1st_badge.png";
 import badge2 from "../images/2nd_badge.png";
 import badge3 from "../images/3rd_badge.png";
+import "../styles/MainPage.css";
 
 const MainPage = () => {
   return (
