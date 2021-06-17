@@ -42,7 +42,8 @@ BACK-END <br>
 <img src="https://img.shields.io/badge/ReactNative-35BDB2?style=flat-square&logo=React&logoColor=yellow"/></a> &nbsp;
 
 ------------------------------------------------------------------------------------------------------------
-## TechMarket 팀 멤버를 소개합니다. 
+
+![header](https://capsule-render.vercel.app/api?type=Soft&text=Techstates%20멤버를%20소개합니다&animation=twinkling&color=gradient&height=150&&fontSize=50)
 
 <details>
 <summary>유지원(Front-end)</summary>
