@@ -74,7 +74,7 @@ BACK-END <br>
 ✨ http://techstates.shop ✨
 
 ------------------------------------------------------------------------------------------------------------
-## UI Design 
+# UI Design 
 
 ![](https://images.velog.io/images/iooi75/post/4479ed7d-d344-4365-b98f-f9666489b2f4/Screen%20Shot%202021-06-18%20at%201.07.43%20AM.png)
 
@@ -89,7 +89,7 @@ BACK-END <br>
 ![](https://images.velog.io/images/iooi75/post/cef539f1-7a85-4c80-b4c7-43d6eba78e9c/Screen%20Shot%202021-06-18%20at%201.08.09%20AM.png)
 
 
-##System Architecture
+# System Architecture
 
 ![image](https://user-images.githubusercontent.com/79830954/122453023-dcde9580-cfe4-11eb-90f3-474c3d04b937.png)
 
