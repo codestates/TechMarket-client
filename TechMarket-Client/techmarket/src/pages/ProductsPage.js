@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
@@ -10,35 +10,39 @@ const Products = props => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  if (props.location.state) { //검색어를 입력하고 들어왔으면
-    const word = props.location.state.search;
-    axios
-      .get(`http://localhost:8080/search?search_word=${word}`,{
-      })
-      .then(res => {
-        if (res.status === 200) {
-          if(res.data.data){
-            setProducts(res.data.data.result);
+  useEffect(() => {
+    if (props.location.state) { //검색어를 입력하고 들어왔으면
+      const word = props.location.state.search;
+      axios
+        .get(`http://localhost:8080/search?search_word=${word}`,{
+        })
+        .then(res => {
+          if (res.status === 200) {
+            if(res.data.data){
+              setProducts(res.data.data.result);
+              setIsLoading(false);
+            } else {
+              alert("검색 결과가 없습니다.");
+            }
+          } else {
+              alert(
+                "예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요."
+              );
+            }
+        });
+    } else {  //전체 상품 보기를 입력하고 들어왔으면
+        axios.get(`http://localhost:8080/products`).then(res => {
+          if (res.status === 200) {
+            setProducts(res.data);
             setIsLoading(false);
           } else {
-            alert("검색 결과가 없습니다.");
+            alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
           }
-        } else {
-            alert(
-              "예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요."
-            );
-          }
-      });
-  } else {  //전체 상품 보기를 입력하고 들어왔으면
-      axios.get(`http://localhost:8080/products`).then(res => {
-        if (res.status === 200) {
-          setProducts(res.data);
-          setIsLoading(false);
-        } else {
-          alert("예상치 못한 오류가 발생했습니다. \n 잠시 후 다시 시도해주세요.");
-        }
-      });
-  }
+        });
+    }
+  },[])
+
+  
   return (
     <>
       <div id="products-container">
