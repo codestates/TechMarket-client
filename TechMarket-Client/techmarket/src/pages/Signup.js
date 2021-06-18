@@ -24,7 +24,7 @@ const Signup = props => {
       if (email !== "" && password !== "" && username !== "") {
         await axios
           .post(
-            `http://localhost:8080/user/signup`,
+            `${process.env.REACT_APP_API_URL}/user/signup`,
             {
               email: email.email,
               username: username.username,

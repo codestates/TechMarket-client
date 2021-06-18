@@ -21,7 +21,8 @@ const MainPage = () => {
               지금 당장 예산에 딱 맞는 전자기기를 거래하고 싶으신가요? 검색창에
               원하는 물건을 검색해보세요!
             </span>
-            <button>소개영상보러가기</button>
+           
+             <a href="https://youtu.be/3I_oGLThsAw"><button>소개영상보러가기</button></a>
           </div>
           <div className="container2">
             <img alt="이미지" src={icon}></img>
