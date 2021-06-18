@@ -46,27 +46,21 @@ BACK-END <br>
 
 ![header](https://capsule-render.vercel.app/api?type=Soft&text=Techstates%20멤버를%20소개합니다&animation=twinkling&color=gradient&height=150&&fontSize=50)
 
-<details>
-<summary>유지원(Front-end)</summary>
-</details>
+
+[유지원(Front-end)](https://github.com/jiweon21)
+
   
 <br>
 
-<details>
-<summary>안아림(Front-end)</summary>
-</details>
+[안아림(Front-end)](https://github.com/ahnella04)
   
 <br>
   
-<details>
-<summary>임현택(Back-end)</summary>
-</details>
+[임현택(Back-end)](https://github.com/Captainjack-kor)
 
 <br>
   
-<details>
-<summary>이승현(Back-end)</summary>
-</details>
+[이승현(Back-end)](https://github.com/thislifehyeon)
 
 
 ------------------------------------------------------------------------------------------------------------
