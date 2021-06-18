@@ -1,28 +1,48 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-family: 'Nanum Gothic', sans-serif; */
 }
 
 #container-mainpage {
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 90rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-break: keep-all;
+}
+
+#section1 .container2 > img {
+  width: 30rem;
 }
 
 #section1 {
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: row;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 25rem;
+  padding-right: 3rem;
+  background-color: rgb(197, 222, 236);
+  background-image: url("../images/mainpage_container1_background.png");
+  background-size: 2000px;
 }
 
 #section1 .container1 {
-  max-width: 350px;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  max-width: 20rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+#section1 .container1 button {
+  border: 3px solid blue;
+  color: rgb(2, 2, 71);
 }
 
 #container-mainpage > #section1 .container1 {
@@ -32,16 +52,23 @@ body {
 }
 
 #section1 .container1 .company-title {
-  font-size: 40px;
-  font-weight: 700;
-  color: black;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgb(2, 2, 71);
+  margin-bottom: 1rem;
 }
 
 #section1 .container1 .company-intro {
-  font-size: 20px;
-  font-weight: 500px;
-  color: black;
+  font-size: 1.2rem;
+  font-weight: 700px;
+  color: rgb(2, 2, 71);
+  margin-left: 0.5rem;
+}
+
+.container1 > button {
+  margin-right: 3rem;
+  margin-left: 0.3rem;
+  font-weight: 500;
 }
 
 #section2 {
@@ -52,51 +79,83 @@ body {
   position: relative;
   z-index: 1;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  border: 1px solid;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  background-color: whitesmoke;
 }
 
 #section2 .container1 {
   display: inline-block;
+  width: 150px;
+}
+
+#section2 .container1 > img {
+  width: 23rem;
+  margin-bottom: 4.5rem;
 }
 
 #section2 .container2 {
-  max-width: 350px;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  max-width: 20rem;
+  margin-top: 5rem;
+  margin-bottom: 12rem;
+  padding-left: 15rem;
 }
 
 #section2 > .container2 .product-intro-title {
-  font-size: 40px;
-  font-weight: 700;
-  color: black;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: rgb(2, 2, 71);
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+}
+
+#section2 > .container2 .product-intro-paragraph button {
+  border: 3px solid blue;
+  color: rgb(2, 2, 71);
+  margin-left: 2rem;
+  font-weight: 500;
 }
 
 #section3 {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: row;
+  justify-content: flex-end;
   position: relative;
   z-index: 1;
   align-items: center;
-  padding-top: 150px;
-  padding: 150px 50px;
-  border: 1px solid;
+  padding-top: 2rem;
+  padding: 1rem 1rem;
 }
 
 #section3 .container1 {
   display: flex;
   flex-direction: column;
+  margin-right: 7rem;
 }
 
 #section3 .container1 .product-brand-title {
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 2.3rem;
+  font-weight: 500;
   color: black;
-  margin-bottom: 30px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 200px;
+}
+
+#section3 .container1 .product-brand-paragraph {
+  margin-top: 5rem;
+  padding: 5px;
+}
+
+#section3 > .container3 {
+  margin-right: 17rem;
+}
+
+#section3 .container3 > img {
+  width: 23rem;
 }
 
 #footer {
@@ -105,12 +164,29 @@ body {
   align-items: center;
   bottom: 0;
   width: 100%;
-  background-color: black;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  background-color: rgb(42, 42, 104);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-#footer > .company-title {
+#footer .company-title .logo {
+  color: white;
+  margin-left: 4rem;
+  margin-right: 1rem;
+}
+
+#footer .company-title .content {
+  color: white;
+  font-size: 0.1rem;
+}
+
+#footer .crews {
   display: flex;
   align-items: center;
+  color: white;
+}
+
+#footer .crews span {
+  width: 3.5rem;
+  font-size: 0.8rem;
 }

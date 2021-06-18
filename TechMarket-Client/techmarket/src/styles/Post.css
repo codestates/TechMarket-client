@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#product-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-post-model {
+  background-color: #ded7f7;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 530px;
+  border-radius: 10px;
+  border: 5px solid #3e306e;
+}
+
+.product-post-title {
+  display: flex;
+  margin: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-post-title > input {
+  width: 420px;
+  height: 25px;
+  margin: 18px 4px 2px 20px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.product-post-title {
+  margin-right: 15px;
+}
+
+.product-post-file {
+  margin-top: 15px;
+  margin-left: 32px;
+}
+
+.product-post-summary {
+  display: flex;
+  margin: 18px 30px 5px;
+  width: 530px;
+  height: 350px;
+}
+
+.product-post-summary > input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.product-post-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 480px;
+  width: 80px;
+  height: 30px;
+  background-color: #333040;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.product-post-btn-container > button {
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  font-size: 15px;
+  color: white;
+}

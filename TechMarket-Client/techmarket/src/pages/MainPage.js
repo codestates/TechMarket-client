@@ -1,8 +1,12 @@
 import React from "react";
-import SigninModal from '../components/SigninModal'
-import Login from "./Login"
-import Signup from "./Signup"
+import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
+import img from "../images/section2_img.png";
+import img2 from "../images/section3_img.png";
+import icon from "../images/mainpage_container1_icon.png";
+import badge1 from "../images/1st_badge.png";
+import badge2 from "../images/2nd_badge.png";
+import badge3 from "../images/3rd_badge.png";
 import "../styles/MainPage.css";
 
 const MainPage = () => {
@@ -12,33 +16,55 @@ const MainPage = () => {
         <Nav />
         <div id="section1">
           <div className="container1">
-            <span className="company-title">전자기기 중고 거래 TechMarket</span>
-            <span className="company-intro">TechMarket 소개 영상</span>
+            <span className="company-title">TechMarket</span>
+            <span className="company-intro">
+              지금 당장 예산에 딱 맞는 전자기기를 거래하고 싶으신가요? 검색창에
+              원하는 물건을 검색해보세요!
+            </span>
+           
+             <a href="https://youtu.be/3I_oGLThsAw"><button>소개영상보러가기</button></a>
           </div>
-          <div className="container2"></div>
+          <div className="container2">
+            <img alt="이미지" src={icon}></img>
+          </div>
         </div>
         <div id="section2">
-          <div className="container1"></div>
+          <div className="container1">
+            <img alt="" src={img}></img>
+          </div>
           <div className="container2">
-            <span className="product-intro-title">상품 소개란</span>
-            <span className="product-intro-paragraph"></span>
+            <span className="product-intro-title">
+              전자기기 중고거래, 지금 당장 시작해보세요
+            </span>
+            <span className="product-intro-paragraph">
+              <Link to="/products">
+                <button>전체 상품 보러가기</button>
+              </Link>
+            </span>
           </div>
         </div>
         <div id="section3">
           <div className="container1">
-            <span className="product-brand-title">브랜드 소개란</span>
-            <span className="product-brand-pargraph"></span>
+            <span className="product-brand-title">안전한 거래</span>
+            <div className="badge-box">
+              <img alt="badge" src={badge1}></img>
+              <img alt="badge" src={badge2}></img>
+              <img alt="badge" src={badge3}></img>
+            </div>
+            <div className="product-brand-pargraph">
+              신용도에 따른 뱃지 부여 기능으로 보다 믿을 수 있는 거래를 할 수
+              있습니다.
+            </div>
           </div>
-          <div className="container2"></div>
-        </div>
-        <div className="container2">
-          <img src="/* 삼성 사진 */"></img>
+          <div className="container3">
+            <img alt="" src={img2}></img>
+          </div>
         </div>
       </div>
       <div id="footer">
         <div className="company-title">
-          <span className="logo"></span>
-          <span className="content"></span>
+          <span className="logo">TechMarket</span>
+          <span className="content">Copyright © by 2021 TechMarket</span>
         </div>
         <div className="crews">
           <span>유지원</span>
@@ -50,5 +76,4 @@ const MainPage = () => {
     </>
   );
 };
-
 export default MainPage;

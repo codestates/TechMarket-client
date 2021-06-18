@@ -1,0 +1,62 @@
+.page-show-section {
+  position: absolute;
+  height: 10rem;
+  margin-top: 70px;
+  margin-left: 300px;
+  width: 350px;
+  padding: 5px;
+}
+
+.page-show-section-title {
+  text-align: center;
+  color: #4b2b66;
+  font-weight: 700;
+  padding: 7px;
+  margin: 10px;
+  margin-left: 280px;
+  width: 150px;
+}
+
+.page-show-container {
+  background-color: rgb(142, 142, 195);
+  display: flex;
+  display: block;
+  margin-left: 230px;
+  width: 280px;
+}
+
+.page-show-header {
+  display: flex;
+  justify-content: flex-start;
+  height: 15px;
+  padding: 15px;
+}
+
+.page-show-group {
+  display: flex;
+  justify-content: center;
+  height: 25rem;
+}
+
+.page-show-box {
+  display: flex;
+  background-color: #e4d0f5;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 5px;
+  width: 100%;
+  height: 35px;
+}
+
+.page-show-title {
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4b2b66;
+}
+
+.page-show-delete-btn {
+  color: black;
+  font-weight: 500;
+  color: #4b2b66;
+}

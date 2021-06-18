@@ -1,0 +1,129 @@
+html {
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.profile-aside {
+  background-color: #ece9ff;
+  flex-direction: column;
+  width: 10rem;
+  height: 70rem;
+  margin-top: 40px;
+  align-items: center;
+  float: left;
+}
+
+.profile-section {
+  position: absolute;
+  height: 10rem;
+  margin-top: 70px;
+  margin-left: 300px;
+  width: 250px;
+}
+
+.profile-section > .profile-title {
+  text-align: center;
+  padding: 7px;
+  color: #725fd8;
+  font-weight: 500;
+  margin-left: 240px;
+  margin-top: 15px;
+  width: 260px;
+
+}
+
+.profile-title > span {
+  font-size: 0.1px;
+  font-weight: 50;
+}
+
+#profile-aside-myprofile {
+  margin: 0;
+  width: 10rem;
+  height: 3rem;
+  margin-top: 50px;
+  font-size: 15px;
+  border-radius: 0;
+  background: #ece9ff;
+  color: #725fd8;
+  transition: 0.2s;
+  }
+
+.profile-info {
+  border: 0.5px solid #725fd8;
+  border-radius: 5px;
+  padding: 7px;
+  height: 270px;
+  width: 250px;
+  padding-left: 7px;
+  margin-left: 240px;
+  
+}
+
+.profile-info > span {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.profile-info > div {
+  border: none;
+  border-bottom: 1px solid rgb(142, 142, 195);
+  width: 220px;
+}
+
+.profile-group {
+  padding: 3px;
+  margin-top: 5px;
+}
+
+.profile-group > span {
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.profile-group-email {
+  margin-top: 15px;
+}
+
+.profile-group-nickname {
+  margin-top: 15px;
+}
+
+.profile-group-password {
+  margin-top: 15px;
+}
+
+#profile-aside-myprofile:hover {
+  background: rgb(209, 198, 231);
+}
+
+input {
+  border: none;
+}
+
+.profile-group > span {
+  font-weight: 150;
+}
+
+.btn-modify {
+  color: black;
+  border-radius: 4px;
+  background-color: rgb(230, 232, 233);
+  margin-left: 150px;
+  margin-top: 20px;
+  padding: 5px;
+  width: 75px;
+}
+
+.btn-modify-profile {
+  margin-top: 23px;
+}
+
+img {
+  width: 50px;
+}
+
+/* MyPageShow */
