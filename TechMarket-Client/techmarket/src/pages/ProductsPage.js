@@ -14,7 +14,7 @@ const Products = props => {
     if (props.location.state) { //검색어를 입력하고 들어왔으면
       const word = props.location.state.search;
       axios
-        .get(`http://localhost:8080/search?search_word=${word}`,{
+        .get(`${process.env.REACT_APP_API_URL}/search?search_word=${word}`,{
         })
         .then(res => {
           if (res.status === 200) {
@@ -31,7 +31,7 @@ const Products = props => {
             }
         });
     } else {  //전체 상품 보기를 입력하고 들어왔으면
-        axios.get(`http://localhost:8080/products`).then(res => {
+        axios.get(`${process.env.REACT_APP_API_URL}/products`).then(res => {
           if (res.status === 200) {
             setProducts(res.data);
             setIsLoading(false);
@@ -69,7 +69,7 @@ const Products = props => {
                   <div className="body-products" >
                     <div>
                       <img
-                        src={`http://localhost:8080/${product.thumbnail}`}
+                        src={`${process.env.REACT_APP_API_URL}/${product.thumbnail}`}
                         className="product-image"
                       ></img>
                     </div>

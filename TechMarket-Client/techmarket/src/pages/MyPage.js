@@ -15,7 +15,7 @@ const MyPage = ({ onClickLogout }) => {
   useEffect(() => {
     axios
     .get(
-      `http://localhost:8080/user/info`,
+      `${process.env.REACT_APP_API_URL}/user/info`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("tech_auth")}`,

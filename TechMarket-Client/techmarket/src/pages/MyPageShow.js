@@ -7,7 +7,7 @@ const MyPageShow = ({ userInfo }) => {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/email?email=${userInfo.email}`)
+    .get(`${process.env.REACT_APP_API_URL}/email?email=${userInfo.email}`)
     .then(res => {
       if(res.status === 200) {
         setPosts(res.data.data.result);
@@ -21,7 +21,7 @@ const MyPageShow = ({ userInfo }) => {
 
   const handleDelete = data => {
     axios
-      .post("http://localhost:8080/mypage/deletecontent", {
+      .post(`${process.env.REACT_APP_API_URL}/mypage/deletecontent`, {
         id: data.id,
       })
       .then(res => {

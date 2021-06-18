@@ -20,7 +20,7 @@ const Login = props => {
       if (email !== "" && password !== "") {
         await axios
           .post(
-            `http://localhost:8080/user/login`,
+            `${process.env.REACT_APP_API_URL}/user/login`,
             {
               email: email.email,
               password: password.password

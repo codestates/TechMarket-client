@@ -31,7 +31,7 @@ const Post = () => {
         formData.append("registday", getCurrentDate());
 
         await axios.post (
-          `http://localhost:8080/mypage/upload`,
+          `${process.env.REACT_APP_API_URL}/mypage/upload`,
           formData,
           )
           .then(res => {

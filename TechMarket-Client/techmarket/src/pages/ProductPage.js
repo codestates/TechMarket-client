@@ -16,7 +16,7 @@ const Product = (props) => {
   const [ modalOpen, setModalOpen ] = useState(false);
 
   axios
-  .get(`http://localhost:8080/board?id=${props.location.state.id}`)
+  .get(`${process.env.REACT_APP_API_URL}/board?id=${props.location.state.id}`)
   .then(res => {
     if (res.status === 200) {
       setProduct(res.data);
@@ -35,7 +35,7 @@ const Product = (props) => {
 
   const clickChatButton = async () => {
     await axios.post(
-      `http://localhost:8080/comment/create`,{
+      `${process.env.REACT_APP_API_URL}/comment/create`,{
         username: localStorage.getItem("username"),
         content: chat,
         boardid: props.location.state.id
@@ -53,7 +53,7 @@ const Product = (props) => {
 
   const clickDeleteButton = async (chatid) => {
     await axios.post(
-      `http://localhost:8080/comment/delete`, {
+      `${process.env.REACT_APP_API_URL}/comment/delete`, {
         id: chatid,
       }
     )
@@ -71,7 +71,7 @@ const Product = (props) => {
     var result = window.confirm("거래가 어땠는지 판단해주세요!");
     if(result) {
       await axios.post(
-        `http://localhost:8080/user/deal`, {
+        `${process.env.REACT_APP_API_URL}/user/deal`, {
           writerid: product.writerid,
         }
       )
@@ -81,15 +81,6 @@ const Product = (props) => {
     } else {
       alert("평가가 완료되었습니다.");
     }
-  }
-
-  const changeImage = () => {
-      imageIndex++;
-
-      if(imageIndex > img.length) {
-        imageIndex = 0;
-      }
-      imageUrl = `http://localhost:8080/${img[imageIndex]}`;
   }
 
   const openModal = () => {
@@ -106,9 +97,7 @@ const Product = (props) => {
         <div className="product-intro">
           <div className="product-photo-content-box">
             <div className="product-photo">
-                  <button onClick={changeImage()}>x</button>
-                  <img src={imageUrl}></img>
-                  <button onClick={changeImage()}>x</button>
+              <img src={`${process.env.REACT_APP_API_URL}/${img[0]}`}></img>
             </div>
             <div className="product-seller-info">
               <div className="product-seller-title">{product.title}</div>

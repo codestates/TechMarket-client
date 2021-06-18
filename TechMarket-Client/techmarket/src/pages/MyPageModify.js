@@ -16,7 +16,7 @@ const MyPageModify = ({ userInfo }) => {
     try {
       if (username !== "" && password !== "") {
         await axios
-          .post(`http://localhost:8080/user/modify`, {
+          .post(`${process.env.REACT_APP_API_URL}/user/modify`, {
             email: userInfo.email,
             username: username.username,
             password: password.password
